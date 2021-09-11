@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>单点登录 - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">4.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">4.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">5.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">5.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">6.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">6.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">7.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">8.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">8.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">8.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">9.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 网络基础</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">11.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">12.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">12.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">12.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">13.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">13.2.</strong> Gitlab-ce 备份和恢复</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">14.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">14.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">14.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">14.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">14.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">14.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">14.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">14.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">14.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">14.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">14.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html" class="active"><strong aria-hidden="true">15.1.</strong> 单点登录</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="单点登录原理与简单实现"><a class="header" href="#单点登录原理与简单实现">单点登录原理与简单实现</a></h1>
+<p>转自<a href="https://www.cnblogs.com/morethink/p/8047711.html">morethink</a></p>
+<h1 id="单系统登录机制"><a class="header" href="#单系统登录机制">单系统登录机制</a></h1>
+<p>web 应用采用 browser/server 架构，http 作为通信协议。http
+是无状态协议，浏览器的每一次请求，服务器会独立处理，不与之前或之后的请求产生关联，这个过程用下图说明，三次请求/响应对之间没有任何联系。</p>
+<p><img src="./images/02c5bff6aa0c8a04bbda6261bb0fbd7f.png" alt="无状态的Http协议" /></p>
+<p>无状态的 Http 协议</p>
+<p>但这也同时意味着，任何用户都能通过浏览器访问服务器资源，如果想保护服务器的某些资源，必须限制浏览器请求；要限制浏览器请求，必须鉴别浏览器请求，响应合法请求，忽略非法请求；要鉴别浏览器请求，必须清楚浏览器请求状态。既然
+http 协议无状态，那就让服务器和浏览器共同维护一个状态吧！这就是会话机制。</p>
+<h2 id="会话机制"><a class="header" href="#会话机制">会话机制</a></h2>
+<p>浏览器第一次请求服务器，服务器创建一个会话，并将会话的 id 作为响应的一部分发送给浏览器，浏览器存储会话 id，并在后续第二次和第三次请求中带上会话 id，服务器取得请求中的会话 id
+就知道是不是同一个用户了，这个过程用下图说明，后续请求与第一次请求产生了关联。</p>
+<p><img src="./images/41970737be124812ef2b457d33aa38df.png" alt="会话机制" /></p>
+<p>会话机制</p>
+<p>服务器在内存中保存会话对象，浏览器怎么保存会话 id 呢？</p>
+<p>你可能会想到两种方式</p>
+<ul>
+<li>请求参数</li>
+<li>cookie</li>
+</ul>
+<p>将会话 id 作为每一个请求的参数，服务器接收请求自然能解析参数获得会话 id，并借此判断是否来自同一会话，很明显，这种方式不靠谱。那就浏览器自己来维护这个会话 id 吧，每次发送 http
+请求时浏览器自动发送会话 id，cookie 机制正好用来做这件事。cookie 是浏览器用来存储少量数据的一种机制，数据以&quot;key/value&quot;形式存储，浏览器发送 http 请求时自动附带
+cookie 信息。</p>
+<p>tomcat 会话机制当然也实现了 cookie，访问 tomcat 服务器时，浏览器中可以看到一个名为<code>JSESSIONID</code>的 cookie，这就是 tomcat 会话机制维护的会话 id，使用了
+cookie 的请求响应过程如下图：</p>
+<p><img src="./images/61273ed59b80ddef53862a0cba5f83a0.png" alt="JSESSIONID" /></p>
+<p>​ JSESSIONID</p>
+<h2 id="登录状态"><a class="header" href="#登录状态">登录状态</a></h2>
+<p>有了会话机制，登录状态就好明白了，我们假设浏览器第一次请求服务器需要输入用户名与密码验证身份，服务器拿到用户名密码去数据库比对，正确的话说明当前持有这个会话的用户是合法用户，应该将这个会话标记为“已授权”或者“已登录”等等之类的状态，既然是会话的状态，自然要保存在会话对象中，tomcat
+在会话对象中设置登录状态如下：</p>
+<pre><code class="language-java">HttpSession session = request.getSession();
+session.setAttribute(&quot;isLogin&quot;, true);
+</code></pre>
+<p>用户再次访问时，tomcat 在会话对象中查看登录状态：</p>
+<pre><code class="language-java">HttpSession session = request.getSession();
+session.getAttribute(&quot;isLogin&quot;);
+</code></pre>
+<p>实现了登录状态的浏览器请求服务器模型如下图描述：</p>
+<p><img src="./images/39ec3914d68cc400fab2d251d84370e6.png" alt="登录状态控制" /></p>
+<p>​ 登录状态控制</p>
+<p>每次请求受保护资源时都会检查会话对象中的登录状态，只有 <code>isLogin=true</code> 的会话才能访问，登录机制因此而实现。</p>
+<h1 id="多系统的复杂性"><a class="header" href="#多系统的复杂性">多系统的复杂性</a></h1>
+<p>web 系统早已从久远的单系统发展成为如今由多系统组成的应用群，面对如此众多的系统，用户难道要一个一个登录、然后一个一个注销吗？就像下图描述的这样</p>
+<p><img src="./images/1c722018d9dfd78b8623a1c5c50cd740.png" alt="多系统" /></p>
+<p>​ 多系统</p>
+<p>​</p>
+<p><strong>web 系统由单系统发展成多系统组成的应用群，复杂性应该由系统内部承担，而不是用户。无论 web 系统内部多么复杂，对用户而言，都是一个统一的整体，也就是说，用户访问 web
+系统的整个应用群与访问单个系统一样，登录/注销只要一次就够了</strong>。</p>
+<p><img src="./images/33e912634f234d469982fd25afac8e2a.png" alt="单系统的登录" /></p>
+<p>​ 单系统的登录</p>
+<p><strong>虽然单系统的登录解决方案很完美，但对于多系统应用群已经不再适用了，为什么呢？</strong></p>
+<p>单系统登录解决方案的核心是 cookie，cookie 携带会话 id 在浏览器与服务器之间维护会话状态。但 cookie 是有限制的，这个限制就是 cookie
+的域（通常对应网站的域名），浏览器发送 http 请求时会自动携带与该域匹配的 cookie，而不是所有 cookie。</p>
+<p><img src="./images/3d3db13c2cab0ba0863b8ecfe4c3f7b2.png" alt="夸域名" /></p>
+<p>​ 跨域名</p>
+<h2 id="子域名-cookie-共享完成单点登录"><a class="header" href="#子域名-cookie-共享完成单点登录">子域名 cookie 共享完成单点登录</a></h2>
+<p>既然这样，为什么不将 web 应用群中所有子系统的域名统一在一个顶级域名下，例如“<code>*.baidu.com</code>”，然后将它们的 cookie
+域设置为“baidu.com”，这种做法理论上是可以的，甚至早期很多多系统登录就采用这种同域名共享 cookie 的方式。</p>
+<p>然而，可行并不代表好，共享 cookie 的方式存在众多局限。</p>
+<ol>
+<li>首先，应用群域名得统一。</li>
+<li>其次，应用群各系统使用的技术（至少是 web 服务器）要相同，不然 cookie 的 key 值（tomcat 为 JSESSIONID）不同，无法维持会话，共享 cookie
+的方式是无法实现跨语言技术平台登录的，比如 java、php、.net 系统之间。</li>
+<li>第三，cookie 本身不安全。</li>
+</ol>
+<p>除上面之外，如果我们在<code>session</code>存放的是<code>User</code>对象，那么我们使用全局 cookie 共享<code>JSESSIONID</code>值，每一个子域名就可以访问同一个 session，登录成功后保存一个
+user 对象，注销后就移除这个 user 对象。session 中的 user 对象必须先序列化保存到 redis 中，并且每次访问的时候，都需要去 redis 中取出
+session，并且重新序列化成 user 对象。<strong>这样会造成额外的消耗</strong>。</p>
+<p>因此，我们需要一种全新的登录方式来实现多系统应用群的登录，这就是单点登录。</p>
+<h1 id="单点登录"><a class="header" href="#单点登录">单点登录</a></h1>
+<p><strong>什么是单点登录</strong>？</p>
+<p>单点登录全称 Single Sign On（以下简称 SSO），是指在多系统应用群中登录一个系统，便可在其他所有系统中得到授权而无需再次登录，包括单点登录与单点注销两部分。</p>
+<h2 id="登录"><a class="header" href="#登录">登录</a></h2>
+<p>相比于单系统登录，sso 需要一个独立的认证中心，只有认证中心能接受用户的用户名密码等安全信息，其他系统不提供登录入口，只接受认证中心的间接授权。间接授权通过令牌实现，sso
+认证中心验证用户的用户名密码没问题，创建授权令牌，在接下来的跳转过程中，授权令牌作为参数发送给各个子系统，子系统拿到令牌，即得到了授权，可以借此创建局部会话，局部会话登录方式与单系统的登录方式相同。</p>
+<p>这个过程，也就是单点登录的原理，用下图说明：</p>
+<p><img src="./images/797930-20161203152650974-276822362.png" alt="单点登录" /></p>
+<p>​ 单点登录</p>
+<p>下面对上图简要描述：</p>
+<ol>
+<li>用户访问系统 1 的受保护资源，系统 1 发现用户未登录，跳转至 sso 认证中心，并将自己的地址作为参数。</li>
+<li>sso 认证中心发现用户未登录，将用户引导至登录页面。</li>
+<li>用户输入用户名密码提交登录申请。</li>
+<li>sso 认证中心校验用户信息，创建用户与 sso 认证中心之间的会话，称为全局会话，同时创建授权令牌。</li>
+<li>sso 认证中心带着令牌跳转会最初的请求地址（系统 1）。</li>
+<li>系统 1 拿到令牌，去 sso 认证中心校验令牌是否有效。</li>
+<li>sso 认证中心校验令牌，返回有效，注册系统 1。</li>
+<li>系统 1 使用该令牌创建与用户的会话，称为局部会话，返回受保护资源。</li>
+<li>用户访问系统 2 的受保护资源。</li>
+<li>系统 2 发现用户未登录，跳转至 sso 认证中心，并将自己的地址作为参数。</li>
+<li>sso 认证中心发现用户已登录，跳转回系统 2 的地址，并附上令牌。</li>
+<li>系统 2 拿到令牌，去 sso 认证中心校验令牌是否有效。</li>
+<li>sso 认证中心校验令牌，返回有效，注册系统 2。</li>
+<li>系统 2 使用该令牌创建与用户的局部会话，返回受保护资源。</li>
+</ol>
+<p>用户登录成功之后，会与 sso 认证中心及各个子系统建立会话，用户与 sso
+认证中心建立的会话称为全局会话，用户与各个子系统建立的会话称为局部会话，局部会话建立之后，用户访问子系统受保护资源将不再通过 sso 认证中心，全局会话与局部会话有如下约束关系：</p>
+<ul>
+<li>局部会话存在，全局会话一定存在。</li>
+<li>全局会话存在，局部会话不一定存在。</li>
+<li>全局会话销毁，局部会话必须销毁。</li>
+</ul>
+<p>你可以通过博客园、百度、csdn、淘宝等网站的登录过程加深对单点登录的理解，注意观察登录过程中的跳转 url 与参数</p>
+<h2 id="注销"><a class="header" href="#注销">注销</a></h2>
+<p>单点登录自然也要单点注销，在一个子系统中注销，所有子系统的会话都将被销毁，用下面的图来说明：</p>
+<p><img src="./images/797930-20161129155242271-222889796.png" alt="单点注销" /></p>
+<p>​ 单点注销</p>
+<p>sso 认证中心一直监听全局会话的状态，一旦全局会话销毁，监听器将通知所有注册系统执行注销操作</p>
+<p>下面对上图简要说明：</p>
+<ol>
+<li>用户向系统 1 发起注销请求。</li>
+<li>系统 1 根据用户与系统 1 建立的会话 id 拿到令牌，向 sso 认证中心发起注销请求。</li>
+<li>sso 认证中心校验令牌有效，销毁全局会话，同时取出所有用此令牌注册的系统地址。</li>
+<li>sso 认证中心向所有注册系统发起注销请求。</li>
+<li>各注册系统接收 sso 认证中心的注销请求，销毁局部会话。</li>
+<li>sso 认证中心引导用户至登录页面。</li>
+</ol>
+<h2 id="部署图"><a class="header" href="#部署图">部署图</a></h2>
+<p>单点登录涉及 sso 认证中心与众子系统，子系统与 sso 认证中心需要通信以交换令牌、校验令牌及发起注销请求，因而子系统必须集成 sso 的客户端，sso 认证中心则是 sso
+服务端，整个单点登录过程实质是 sso 客户端与服务端通信的过程，用下图描述：</p>
+<p><img src="./images/797930-20161129155244646-2067469767.png" alt="部署图" /></p>
+<p>​ 部署图</p>
+<p>sso 认证中心与 sso 客户端通信方式有多种，这里以简单好用的 httpClient 为例，web service、rpc、restful api 都可以。</p>
+<h1 id="实现"><a class="header" href="#实现">实现</a></h1>
+<p>只是简要介绍下基于 java 的实现过程，不提供完整源码，明白了原理，我相信你们可以自己实现。sso 采用客户端/服务端架构，我们先看 sso-client 与 sso-server
+要实现的功能（下面：sso 认证中心=sso-server）。</p>
+<h3 id="sso-client"><a class="header" href="#sso-client">sso-client</a></h3>
+<ol>
+<li>拦截子系统未登录用户请求，跳转至 sso 认证中心。</li>
+<li>接收并存储 sso 认证中心发送的令牌。</li>
+<li>与 sso-server 通信，校验令牌的有效性。</li>
+<li>建立局部会话。</li>
+<li>拦截用户注销请求，向 sso 认证中心发送注销请求。</li>
+<li>接收 sso 认证中心发出的注销请求，销毁局部会话。</li>
+</ol>
+<h3 id="sso-server"><a class="header" href="#sso-server">sso-server</a></h3>
+<ol>
+<li>验证用户的登录信息。</li>
+<li>创建全局会话。</li>
+<li>创建授权令牌。</li>
+<li>与 sso-client 通信发送令牌。</li>
+<li>校验 sso-client 令牌有效性。</li>
+<li>系统注册。</li>
+<li>接收 sso-client 注销请求，注销所有会话。</li>
+</ol>
+<p>接下来，我们按照原理来一步步实现 sso 吧！</p>
+<h2 id="sso-client-拦截未登录请求"><a class="header" href="#sso-client-拦截未登录请求">sso-client 拦截未登录请求</a></h2>
+<p>java 拦截请求的方式有 servlet、filter、listener 三种方式，我们采用 filter。在 sso-client 中新建 LoginFilter.java 类并实现 Filter
+接口，在 doFilter()方法中加入对未登录用户的拦截：</p>
+<pre><code class="language-java">public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    HttpServletRequest req = (HttpServletRequest) request;
+    HttpServletResponse res = (HttpServletResponse) response;
+    HttpSession session = req.getSession();
+
+    if (session.getAttribute(&quot;isLogin&quot;)) {
+        chain.doFilter(request, response);
+        return;
+    }
+    //跳转至sso认证中心
+    res.sendRedirect(&quot;sso-server-url-with-system-url&quot;);
+}
+</code></pre>
+<h2 id="sso-server-拦截未登录请求"><a class="header" href="#sso-server-拦截未登录请求">sso-server 拦截未登录请求</a></h2>
+<p>拦截从 sso-client 跳转至 sso 认证中心的未登录请求，跳转至登录页面，这个过程与 sso-client 完全一样。</p>
+<h2 id="sso-server-验证用户登录信息"><a class="header" href="#sso-server-验证用户登录信息">sso-server 验证用户登录信息</a></h2>
+<p>用户在登录页面输入用户名密码，请求登录，sso 认证中心校验用户信息，校验成功，将会话状态标记为“已登录”。</p>
+<pre><code class="language-java">@RequestMapping(&quot;/login&quot;)
+public String login(String username, String password, HttpServletRequest req) {
+    this.checkLoginInfo(username, password);
+    req.getSession().setAttribute(&quot;isLogin&quot;, true);
+    return &quot;success&quot;;
+}
+</code></pre>
+<h2 id="sso-server-创建授权令牌"><a class="header" href="#sso-server-创建授权令牌">sso-server 创建授权令牌</a></h2>
+<p>授权令牌是一串随机字符，以什么样的方式生成都没有关系，只要不重复、不易伪造即可，下面是一个例子：</p>
+<pre><code class="language-java">String token = UUID.randomUUID().toString();
+</code></pre>
+<h2 id="sso-client-取得令牌并校验"><a class="header" href="#sso-client-取得令牌并校验">sso-client 取得令牌并校验</a></h2>
+<p>sso 认证中心登录后，跳转回子系统并附上令牌，子系统（sso-client）取得令牌，然后去 sso 认证中心校验，在 LoginFilter.java 的 doFilter()中添加几行：</p>
+<pre><code class="language-java">// 请求附带token参数
+String token = req.getParameter(&quot;token&quot;);
+if (token != null) {
+    // 去sso认证中心校验token
+    boolean verifyResult = this.verify(&quot;sso-server-verify-url&quot;, token);
+    if (!verifyResult) {
+        res.sendRedirect(&quot;sso-server-url&quot;);
+        return;
+    }
+    chain.doFilter(request, response);
+}
+</code></pre>
+<p>verify()方法使用 httpClient 实现，这里仅简略介绍，httpClient 详细使用方法请参考官方文档。</p>
+<pre><code class="language-java">HttpPost httpPost = new HttpPost(&quot;sso-server-verify-url-with-token&quot;);
+HttpResponse httpResponse = httpClient.execute(httpPost);
+</code></pre>
+<h2 id="sso-server-接收并处理校验令牌请求"><a class="header" href="#sso-server-接收并处理校验令牌请求">sso-server 接收并处理校验令牌请求</a></h2>
+<ul>
+<li>用户在 sso 认证中心登录成功后，sso-server 创建授权令牌并存储该令牌，所以，sso-server 对令牌的校验就是去查找这个令牌是否存在以及是否过期，令牌校验成功后
+sso-server 将发送校验请求的系统注册到 sso 认证中心（就是存储起来的意思）</li>
+<li>令牌与注册系统地址通常存储在 key-value 数据库（如 redis）中，redis 可以为 key 设置有效时间也就是令牌的有效期。redis 运行在内存中，速度非常快，正好
+sso-server 不需要持久化任何数据。</li>
+<li>令牌与注册系统地址可以用下图描述的结构存储在 redis 中，可能你会问，为什么要存储这些系统的地址？如果不存储，注销的时候就麻烦了，用户向 sso 认证中心提交注销请求，sso
+认证中心注销全局会话，但不知道哪些系统用此全局会话建立了自己的局部会话，也不知道要向哪些子系统发送注销请求注销局部会话。</li>
+</ul>
+<p><img src="./images/797930-20161129155245506-1069288802.png" alt="img" /></p>
+<h2 id="sso-client-校验令牌成功创建局部会话"><a class="header" href="#sso-client-校验令牌成功创建局部会话">sso-client 校验令牌成功创建局部会话</a></h2>
+<p>令牌校验成功后，sso-client 将当前局部会话标记为“已登录”，修改 LoginFilter.java，添加几行：</p>
+<pre><code class="language-java">if (verifyResult) {
+    session.setAttribute(&quot;isLogin&quot;, true);
+}
+</code></pre>
+<p>sso-client 还需将当前会话 id 与令牌绑定，表示这个会话的登录状态与令牌相关，此关系可以用 java 的 hashmap 保存，保存的数据用来处理 sso 认证中心发来的注销请求</p>
+<h2 id="注销过程"><a class="header" href="#注销过程">注销过程</a></h2>
+<p>用户向子系统发送带有“logout”参数的请求（注销请求），sso-client 拦截器拦截该请求，向 sso 认证中心发起注销请求：</p>
+<pre><code class="language-java">String logout = req.getParameter(&quot;logout&quot;);
+if (logout != null) {
+    this.ssoServer.logout(token);
+}
+</code></pre>
+<p>sso 认证中心也用同样的方式识别出 sso-client 的请求是注销请求（带有“logout”参数），sso 认证中心注销全局会话：</p>
+<pre><code class="language-java">@RequestMapping(&quot;/logout&quot;)
+public String logout(HttpServletRequest req) {
+    HttpSession session = req.getSession();
+    if (session != null) {
+        session.invalidate();//触发LogoutListener
+    }
+    return &quot;redirect:/&quot;;
+}
+</code></pre>
+<p>sso 认证中心有一个全局会话的监听器，一旦全局会话注销，将通知所有注册系统注销</p>
+<pre><code class="language-java">public class LogoutListener implements HttpSessionListener {
+    @Override
+    public void sessionCreated(HttpSessionEvent event) {}
+    @Override
+    public void sessionDestroyed(HttpSessionEvent event) {
+        //通过httpClient向所有注册系统发送注销请求
+    }
+}
+</code></pre>
+<h1 id="代码部署"><a class="header" href="#代码部署">代码部署</a></h1>
+<p>GitHub 地址： https://github.com/morethink/simple-sso.git</p>
+<h2 id="idea-部署"><a class="header" href="#idea-部署">IDEA 部署</a></h2>
+<p><img src="./images/3a48b1deaaecd4dc74377a5eacec4a08.png" alt="img" />
+<img src="./images/d341e21bdb77889efae518d35d754b34.png" alt="img" />
+<img src="./images/1439e11d0b2659b62780e887bd22b20f.png" alt="img" /></p>
+<h2 id="单点登录-1"><a class="header" href="#单点登录-1">单点登录</a></h2>
+<p><strong>访问 a 系统</strong>：</p>
+<p>http://localhost/a/test</p>
+<p><img src="./images/a743f4b854fb7f82bf4855112de304de.png" alt="img" /></p>
+<p><strong>访问 b 系统</strong>：</p>
+<p>http://localhost/b/test</p>
+<p><img src="./images/e619435d561a998088a6d11a4ecc22cc.png" alt="img" /></p>
+<p><strong>a 系统登录成功</strong>：</p>
+<p><img src="./images/07a3bf0aefd180dfaa5779ba740998b4.png" alt="img" /></p>
+<p><strong>b 系统同时也登录成功</strong>:</p>
+<p><img src="./images/e504ce5c9dc7e9e70303b9f3f54d20c2.png" alt="img" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../Java/11-正则表达式.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../Java/11-正则表达式.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
