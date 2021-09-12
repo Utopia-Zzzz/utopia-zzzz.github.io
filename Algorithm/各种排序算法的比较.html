@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>各种排序算法的比较 - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">4.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">4.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">5.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">5.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">6.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">6.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">7.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">8.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">8.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">8.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">9.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 网络基础</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">11.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">12.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">12.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">12.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">13.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">13.2.</strong> Gitlab-ce 备份和恢复</a></li><li class="chapter-item expanded "><a href="../Git/保存本地commit记录的同时合并提交到origin.html"><strong aria-hidden="true">13.3.</strong> 保存本地 commit 记录的同时合并提交到 origin</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">14.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">14.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">14.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">14.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">14.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">14.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">14.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">14.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">14.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">14.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">14.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html"><strong aria-hidden="true">15.1.</strong> 单点登录</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">算法</li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> LeetCode</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Algorithm/各种排序算法的比较.html" class="active"><strong aria-hidden="true">16.1.</strong> 各种排序算法的比较</a></li><li class="chapter-item expanded "><a href="../Algorithm/斐波那契进阶.html"><strong aria-hidden="true">16.2.</strong> 斐波那契进阶</a></li><li class="chapter-item expanded "><a href="../Algorithm/1-两数之和.html"><strong aria-hidden="true">16.3.</strong> 1-两数之和</a></li><li class="chapter-item expanded "><a href="../Algorithm/2-两数相加.html"><strong aria-hidden="true">16.4.</strong> 2-两数相加</a></li><li class="chapter-item expanded "><a href="../Algorithm/3-无重复字符的最长子串.html"><strong aria-hidden="true">16.5.</strong> 3-无重复字符的最长子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/4-寻找两个有序数组的中位数.html"><strong aria-hidden="true">16.6.</strong> 4-寻找两个有序数组的中位数</a></li><li class="chapter-item expanded "><a href="../Algorithm/5-最长回文子串.html"><strong aria-hidden="true">16.7.</strong> 5-最长回文子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/6-Z字形变换.html"><strong aria-hidden="true">16.8.</strong> 6-Z字形变换</a></li><li class="chapter-item expanded "><a href="../Algorithm/7-整数翻转.html"><strong aria-hidden="true">16.9.</strong> 7-整数翻转</a></li><li class="chapter-item expanded "><a href="../Algorithm/92-反转链表②.html"><strong aria-hidden="true">16.10.</strong> 92-反转链表②</a></li><li class="chapter-item expanded "><a href="../Algorithm/206-反转链表.html"><strong aria-hidden="true">16.11.</strong> 206-反转链表</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="各种常见排序算法的比较"><a class="header" href="#各种常见排序算法的比较">各种常见排序算法的比较</a></h1>
+<h2 id="一详细时间复杂度总结"><a class="header" href="#一详细时间复杂度总结">一、详细时间复杂度总结</a></h2>
+<p>　　   <img src="./images/1282720-20171120155153899-888274770.png" alt="img" /></p>
+<h2 id="二稳定性分析"><a class="header" href="#二稳定性分析">二、稳定性分析</a></h2>
+<p>　　　 <img src="./images/1282720-20171120155324930-1840541919.png" alt="img" /></p>
+<blockquote>
+<p>　　 **不稳定排序算法：**选择排序、快速排序、希尔排序、堆排序</p>
+<p>　 　**稳定排序算法：**而冒泡排序、插入排序、归并排序和基数排序</p>
+</blockquote>
+<h2 id="三常见排序算法简要分析"><a class="header" href="#三常见排序算法简要分析">三、<strong>常见排序算法简要分析：</strong></a></h2>
+<h3 id="1冒泡排序"><a class="header" href="#1冒泡排序">(1)冒泡排序</a></h3>
+<p>冒泡排序就是把小的元素往前调或者把大的元素往后调。比较是相邻的两个元素比较，交换也发生在这两个元素之间。所以，如果两个元素相等，我想你是不会再无聊地把他们俩交换一下的；如果两个相等的元素没有相邻，那么即使通过前面的两两交换把两个相邻起来，这时候也不会交换，所以相同元素的前后顺序并没有改变，所以冒泡排序是一种稳定排序算法。</p>
+<h3 id="2选择排序"><a class="header" href="#2选择排序">(2)选择排序</a></h3>
+<p>选择排序是给每个位置选择当前元素最小的，比如给第一个位置选择最小的，在剩余元素里面给第二个元素选择第二小的，依次类推，直到第n - 1个元素，第n个元素不用选择了，因为只剩下它一个最大的元素了。那么，在一趟选择，如果当前元素比一个元素小，而该小的元素又出现在一个和当前元素相等的元素后面，那么交换后稳定性就被破坏了。比较拗口，举个例子，序列5 8 5 2 9，我们知道第一遍选择第1个元素5会和2交换，那么原序列中2个5的相对前后顺序就被破坏了，所以选择排序不是一个稳定的排序算法。</p>
+<h3 id="3插入排序"><a class="header" href="#3插入排序">(3)插入排序</a></h3>
+<p>插入排序是在一个已经有序的小序列的基础上，一次插入一个元素。当然，刚开始这个有序的小序列只有1个元素，就是第一个元素。比较是从有序序列的末尾开始，也就是想要插入的元素和已经有序的最大者开始比起，如果比它大则直接插入在其后面，否则一直往前找直到找到它该插入的位置。如果碰见一个和插入元素相等的，那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。</p>
+<h3 id="4快速排序"><a class="header" href="#4快速排序">(4)快速排序</a></h3>
+<p>快速排序有两个方向，左边的i下标一直往右走，当a[i] &lt;= a[center_index]，其中center_index是中枢元素的数组下标，一般取为数组第0个元素。而右边的j下标一直往左走，当a[j] &gt; a[center_index]。如果i和j都走不动了，i &lt;= j，交换a[i]和a[j],重复上面的过程，直到i &gt; j。 交换a[j]和a[center_index]，完成一趟快速排序。在中枢元素和a[j]交换的时候，很有可能把前面的元素的稳定性打乱，比如序列为5 3 3 4 3 8 9 10 11，现在中枢元素5和3（第5个元素，下标从1开始计）交换就会把元素3的稳定性打乱，所以快速排序是一个不稳定的排序算法，不稳定发生在中枢元素和a[j] 交换的时刻。</p>
+<h3 id="5归并排序"><a class="header" href="#5归并排序">(5)归并排序</a></h3>
+<p>归并排序是把序列递归地分成短序列，递归出口是短序列只有1个元素（认为直接有序）或者2个序列（1次比较和交换），然后把各个有序的段序列合并成一个有序的长序列，不断合并直到原序列全部排好序。可以发现，在1个或2个元素时，1个元素不会交换，2个元素如果大小相等也没有人故意交换，这不会破坏稳定性。那么，在短的有序序列合并的过程中，稳定是是否受到破坏？没有，合并过程中我们可以保证如果两个当前元素相等时，我们把处在前面的序列的元素保存在结果序列的前面，这样就保证了稳定性。所以，归并排序也是稳定的排序算法。</p>
+<h3 id="6基数排序"><a class="header" href="#6基数排序">(6)基数排序</a></h3>
+<p>基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序，最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以其是稳定的排序算法。</p>
+<h3 id="7希尔排序shell"><a class="header" href="#7希尔排序shell">(7)希尔排序(shell)</a></h3>
+<p>希尔排序是按照不同步长对元素进行插入排序，当刚开始元素很无序的时候，步长最大，所以插入排序的元素个数很少，速度很快；当元素基本有序了，步长很小， 插入排序对于有序的序列效率很高。所以，希尔排序的时间复杂度会比O(n^2)好一些。由于多次插入排序，我们知道一次插入排序是稳定的，不会改变相同元素的相对顺序，但在不同的插入排序过程中，相同的元素可能在各自的插入排序中移动，最后其稳定性就会被打乱，所以shell排序是不稳定的。</p>
+<h3 id="8堆排序"><a class="header" href="#8堆排序">(8)堆排序</a></h3>
+<p>我们知道堆的结构是节点i的孩子为2 * i和2 * i + 1节点，大顶堆要求父节点大于等于其2个子节点，小顶堆要求父节点小于等于其2个子节点。在一个长为n 的序列，堆排序的过程是从第n / 2开始和其子节点共3个值选择最大（大顶堆）或者最小（小顶堆），这3个元素之间的选择当然不会破坏稳定性。但当为n / 2 - 1， n / 2 - 2， ... 1这些个父节点选择元素时，就会破坏稳定性。有可能第n / 2个父节点交换把后面一个元素交换过去了，而第n / 2 - 1个父节点把后面一个相同的元素没 有交换，那么这2个相同的元素之间的稳定性就被破坏了。所以，堆排序不是稳定的排序算法。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../Java/单点登录.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../Algorithm/斐波那契进阶.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../Java/单点登录.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../Algorithm/斐波那契进阶.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
