@@ -1,0 +1,907 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Python高阶-4 - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">4.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">4.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">5.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">5.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">6.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">6.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">7.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">8.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">8.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">8.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">9.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 网络基础</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">11.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/vim编辑器.html"><strong aria-hidden="true">12.1.</strong> vim编辑器</a></li><li class="chapter-item expanded "><a href="../Linux/初始命令.html"><strong aria-hidden="true">12.2.</strong> 初始命令</a></li><li class="chapter-item expanded "><a href="../Linux/文件内容操作命令.html"><strong aria-hidden="true">12.3.</strong> 文件内容操作命令</a></li><li class="chapter-item expanded "><a href="../Linux/网络命令等.html"><strong aria-hidden="true">12.4.</strong> 网络命令等</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">13.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">13.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">13.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">14.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">14.2.</strong> Gitlab-ce 备份和恢复</a></li><li class="chapter-item expanded "><a href="../Git/保存本地commit记录的同时合并提交到origin.html"><strong aria-hidden="true">14.3.</strong> 保存本地 commit 记录的同时合并提交到 origin</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">15.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">15.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">15.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">15.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">15.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">15.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">15.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">15.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">15.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">15.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">15.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html"><strong aria-hidden="true">16.1.</strong> 单点登录</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Python</li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> 乱七八糟</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Flask入门.html"><strong aria-hidden="true">17.1.</strong> Flask入门</a></li><li class="chapter-item expanded "><a href="../Python/HTTPserver.html"><strong aria-hidden="true">17.2.</strong> HTTPserver</a></li><li class="chapter-item expanded "><a href="../Python/Python数据结构.html"><strong aria-hidden="true">17.3.</strong> Python数据结构</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-1.html"><strong aria-hidden="true">17.4.</strong> Python高阶-1</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-2.html"><strong aria-hidden="true">17.5.</strong> Python高阶-2</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-3.html"><strong aria-hidden="true">17.6.</strong> Python高阶-3</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-4.html" class="active"><strong aria-hidden="true">17.7.</strong> Python高阶-4</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-5.html"><strong aria-hidden="true">17.8.</strong> Python高阶-5</a></li><li class="chapter-item expanded "><a href="../Python/爬坑1-10.html"><strong aria-hidden="true">17.9.</strong> 爬坑1-10</a></li><li class="chapter-item expanded "><a href="../Python/爬坑11-20.html"><strong aria-hidden="true">17.10.</strong> 爬坑11-20</a></li><li class="chapter-item expanded "><a href="../Python/爬坑21-30.html"><strong aria-hidden="true">17.11.</strong> 爬坑21-30</a></li><li class="chapter-item expanded "><a href="../Python/爬坑31-40.html"><strong aria-hidden="true">17.12.</strong> 爬坑31-40</a></li><li class="chapter-item expanded "><a href="../Python/爬坑41-50.html"><strong aria-hidden="true">17.13.</strong> 爬坑41-50</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">算法</li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> LeetCode</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Algorithm/各种排序算法的比较.html"><strong aria-hidden="true">18.1.</strong> 各种排序算法的比较</a></li><li class="chapter-item expanded "><a href="../Algorithm/斐波那契进阶.html"><strong aria-hidden="true">18.2.</strong> 斐波那契进阶</a></li><li class="chapter-item expanded "><a href="../Algorithm/1-两数之和.html"><strong aria-hidden="true">18.3.</strong> 1-两数之和</a></li><li class="chapter-item expanded "><a href="../Algorithm/2-两数相加.html"><strong aria-hidden="true">18.4.</strong> 2-两数相加</a></li><li class="chapter-item expanded "><a href="../Algorithm/3-无重复字符的最长子串.html"><strong aria-hidden="true">18.5.</strong> 3-无重复字符的最长子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/4-寻找两个有序数组的中位数.html"><strong aria-hidden="true">18.6.</strong> 4-寻找两个有序数组的中位数</a></li><li class="chapter-item expanded "><a href="../Algorithm/5-最长回文子串.html"><strong aria-hidden="true">18.7.</strong> 5-最长回文子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/6-Z字形变换.html"><strong aria-hidden="true">18.8.</strong> 6-Z字形变换</a></li><li class="chapter-item expanded "><a href="../Algorithm/7-整数翻转.html"><strong aria-hidden="true">18.9.</strong> 7-整数翻转</a></li><li class="chapter-item expanded "><a href="../Algorithm/92-反转链表②.html"><strong aria-hidden="true">18.10.</strong> 92-反转链表②</a></li><li class="chapter-item expanded "><a href="../Algorithm/206-反转链表.html"><strong aria-hidden="true">18.11.</strong> 206-反转链表</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="线程和进程"><a class="header" href="#线程和进程">线程和进程</a></h1>
+<h2 id="1threading包"><a class="header" href="#1threading包">1.Threading包</a></h2>
+<p><code>threading</code>封装了相当多的线程操作</p>
+<ul>
+<li>
+<p><code>enumerate()</code>转为序列字典的时候会将所有线程打印出来，</p>
+</li>
+<li>
+<p><code>start()</code>方法会让线程开始进行</p>
+</li>
+<li>
+<p><code>join()</code>方法会进行阻塞</p>
+</li>
+</ul>
+<pre><code class="language-python">import threading
+import time
+
+
+def func1():
+    print(&quot;func1&quot;)
+    time.sleep(1)
+
+
+def func2():
+    print(&quot;func2&quot;)
+    time.sleep(1)
+
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;当前线程的信息&quot;, threading.enumerate())
+    t1 = threading.Thread(target=func1)
+    t2 = threading.Thread(target=func2)
+    print(&quot;当前线程的信息&quot;, threading.enumerate())
+    t1.start()
+    t2.start()
+    print(&quot;当前线程的信息&quot;, threading.enumerate())
+    t1.join()
+    t2.join()
+    print(&quot;当前线程的信息&quot;, threading.enumerate())
+
+
+
+out:
+当前线程的信息 [&lt;_MainThread(MainThread, started 12236)&gt;]
+当前线程的信息 [&lt;_MainThread(MainThread, started 12236)&gt;]
+func1
+func2
+当前线程的信息[&lt;_MainThread(MainThread, started 12236)&gt;, &lt;Thread(Thread-1, started 14100)&gt;, &lt;Thread(Thread-2, started 2712)&gt;]
+当前线程的信息 [&lt;_MainThread(MainThread, started 12236)&gt;]
+
+</code></pre>
+<p>线程是无序的：</p>
+<pre><code class="language-python">import threading
+import time
+
+
+def func1():
+    for i in range(10):
+        print(&quot;func1&quot;)
+        time.sleep(1)
+
+
+def func2():
+    for i in range(10):
+        print(&quot;func2&quot;)
+        time.sleep(1)
+
+
+if __name__ == &quot;__main__&quot;:
+    t1 = threading.Thread(target=func1)
+    t2 = threading.Thread(target=func2)
+    t1.start()
+    t2.start()
+</code></pre>
+<p>输出会有部分内容，<code>func2</code>在<code>func1</code>前面</p>
+<h2 id="2互斥锁"><a class="header" href="#2互斥锁">2.互斥锁</a></h2>
+<p>对需要线程间共享的数据，使用锁来保证数据不被脏读、重复读之类的问题。</p>
+<p>先看一下不加锁的问题所在：</p>
+<pre><code class="language-python">import threading
+
+num = 0
+
+
+def func1():
+    global num
+    for i in range(1000000):
+        num += 1
+    print(&quot;func1处理结束：&quot;,num)
+
+
+def func2():
+    global num
+    for i in range(1000000):
+        num += 1
+    print(&quot;func2处理结束：&quot;,num)
+
+
+if __name__ == &quot;__main__&quot;:
+    t1 = threading.Thread(target=func1)
+    t2 = threading.Thread(target=func2)
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+    print(&quot;结束：&quot;, num)
+
+out:
+func1处理结束： 1002210
+func2处理结束： 1175871
+结束： 1175871
+</code></pre>
+<p>这里就发生了数据的重复读。</p>
+<p>这里给资源加上锁就不会有这样的问题了。</p>
+<p>先获取锁，然后加锁，然后解锁。就三步操作。</p>
+<blockquote>
+<p><strong>锁一定要在线程<code>start()</code>之前获取</strong></p>
+</blockquote>
+<pre><code class="language-python">import threading
+
+
+num = 0
+
+
+def func1():
+    global num
+    for i in range(100000):
+        lock.acquire()
+        num += 1
+        lock.release()
+    print(&quot;func1处理结束：&quot;,num)
+
+
+def func2():
+    global num
+    for i in range(100000):
+        lock.acquire()
+        num += 1
+        lock.release()
+    print(&quot;func2处理结束：&quot;,num)
+
+
+if __name__ == &quot;__main__&quot;:
+    lock = threading.Lock()
+    t1 = threading.Thread(target=func1)
+    t2 = threading.Thread(target=func2)
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+    print(&quot;结束：&quot;, num)
+
+out：
+func1处理结束： 147648
+func2处理结束： 200000
+结束： 200000
+</code></pre>
+<p>对于读取同一个数据的线程，所有的线程都需要加锁。</p>
+<blockquote>
+<p><strong>锁会影响执行效率</strong></p>
+</blockquote>
+<h2 id="3死锁"><a class="header" href="#3死锁">3.死锁</a></h2>
+<p>就是你给我笔我就把我的本子给你，</p>
+<p>你说你给我本子我就把我的笔给你。</p>
+<p>两个人都无法获取，都无法释放。</p>
+<p>代码如下：</p>
+<pre><code class="language-python">import threading
+import time
+
+
+class MyThread1(threading.Thread):
+    def run(self):
+        mutexA.acquire()
+        print(self.name,&quot; --- do 1 up ------&quot;)
+        time.sleep(1)
+        mutexB.acquire()
+        print(self.name,&quot; --- do 1 down ------&quot;)
+        mutexB.release()
+        mutexA.release()
+
+
+class MyThread2(threading.Thread):
+    def run(self):
+        mutexB.acquire()
+        print(self.name,&quot; --- do 2 up ------&quot;)
+        time.sleep(1)
+        mutexA.acquire()
+        print(self.name,&quot; --- do 2 down ------&quot;)
+        mutexA.release()
+        mutexB.release()
+
+
+if __name__ == '__main__':
+    mutexA = threading.Lock()
+    mutexB = threading.Lock()
+    t1 = MyThread1()
+    t2 = MyThread2()
+    t1.start()
+    t2.start()
+
+
+out：
+Thread-1  --- do 1 up ------
+Thread-2  --- do 2 up ------
+</code></pre>
+<p>输出只有这两行。</p>
+<p>因为两个线程都在等待对方释放锁，然后再自己释放锁。但是条件都不成立</p>
+<p>产生了==死锁==。</p>
+<h2 id="4gil锁"><a class="header" href="#4gil锁">4.GIL锁</a></h2>
+<p>多线程和多进程是不一样的。</p>
+<p>多进程是真正的并行，而多线程是伪并行，实际上他只是交替执行。</p>
+<p>是什么导致多线程，只能交替执行呢？是一个叫 GIL（Global Interpreter Lock ，全局解释器锁）的东西。</p>
+<p>GIL的概念：</p>
+<blockquote>
+<p>任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放 GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁， 所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个 核</p>
+</blockquote>
+<p>这个是Python的解释器CPython引入的概念。还有其他解释器。但是默认的认为Python == CPython</p>
+<p>默许了Python有GIL锁这个东西。</p>
+<p>避免GIL锁的方法：</p>
+<blockquote>
+<ul>
+<li>使用多进程代替</li>
+<li>不使用CPython</li>
+</ul>
+</blockquote>
+<h2 id="5线程之间进行通信"><a class="header" href="#5线程之间进行通信">5.线程之间进行通信</a></h2>
+<h3 id="51队列"><a class="header" href="#51队列">5.1队列</a></h3>
+<p><code>queue.Queue()</code>是实现的一个队列。</p>
+<p><code>put</code>可以放入，<code>get</code>可以取，<code>qsize</code>可以获取长度</p>
+<p>如果队列为空，则会一直阻塞，不会结束。</p>
+<p>如果不想阻塞，可以给<code>get</code>添加<code>timeout</code>参数</p>
+<p>会抛出异常</p>
+<p>队列初始化的时候可以设置<code>maxsize</code>参数定义最大长度，限制<code>put</code>。</p>
+<p>超出长度的时候一样是会阻塞，也可以添加timeout参数。</p>
+<p>接下来实现经典的生产者消费者问题：</p>
+<pre><code class="language-python">import random
+import threading
+import time
+from queue import Queue
+
+q = Queue()
+
+def producer():
+    # 生产骨头
+    count = 0
+    while True:
+        count += 1
+        s = &quot;骨头%s号&quot;%count
+        print(&quot;生产了&quot;, s)
+        q.put(s)
+        time.sleep(random.random())
+
+
+def dog():
+    # 消费骨头
+    num = 0
+    while True:
+        print(f&quot;小狗{num}吃掉了{q.get()}&quot;)
+        time.sleep(random.random())
+        num += 1
+
+
+if __name__ == '__main__':
+    t1 = threading.Thread(target=producer)
+    t2 = threading.Thread(target=dog)
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+
+out:
+生产了 骨头1号
+小狗0吃掉了骨头1号
+生产了 骨头2号
+小狗1吃掉了骨头2号
+生产了 骨头3号
+小狗2吃掉了骨头3号
+生产了 骨头4号
+小狗3吃掉了骨头4号
+生产了 骨头5号
+小狗4吃掉了骨头5号
+生产了 骨头6号
+小狗5吃掉了骨头6号
+生产了 骨头7号
+小狗6吃掉了骨头7号
+生产了 骨头8号
+生产了 骨头9号
+小狗7吃掉了骨头8号
+生产了 骨头10号
+生产了 骨头11号
+小狗8吃掉了骨头9号
+小狗9吃掉了骨头10号
+小狗10吃掉了骨头11号
+生产了 骨头12号
+生产了 骨头13号
+生产了 骨头14号
+小狗11吃掉了骨头12号
+生产了 骨头15号
+生产了 骨头16号
+小狗12吃掉了骨头13号
+小狗13吃掉了骨头14号
+生产了 骨头17号
+生产了 骨头18号
+生产了 骨头19号
+小狗14吃掉了骨头15号
+小狗15吃掉了骨头16号
+生产了 骨头20号
+</code></pre>
+<p>可以看到有时候生产了好几个</p>
+<p>有时候一次吃掉好几个</p>
+<h3 id="52线程池"><a class="header" href="#52线程池">5.2线程池</a></h3>
+<p>在使用多线程处理任务时也不是线程越多越好，由于在切换线程的时候，需要切换上下文环境，依然会造成<code>cpu</code>的大量开销。为解决这个问题，线程池的概念被提出来了。预先创建好一个较为优化 的数量的线程，放到队列中，让过来的任务立刻能够使用，就形成了线程池。</p>
+<p>创建线程池通过<code>concurrent.futures</code>库中的<code>ThreadPoolExecutor</code>实现的。</p>
+<p><code>future</code>对象：在未来的某一时刻完成操作的对象。 <code>submit</code>方法可以返回一个<code>future</code>对象。</p>
+<p>线程池就是，已创建的线程一直在（初始化的时候就创建了），任务来了就挑一个跑。</p>
+<blockquote>
+<p>是用来限制线程数量的</p>
+</blockquote>
+<p><code>submit</code>会把任务放入线程池中，返回future对象</p>
+<p><code>done</code>会判断future是否执行完成</p>
+<p><code>result</code>会获取阻塞主线程，直到获取返回值才结束阻塞。</p>
+<pre><code class="language-python">import threading
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+# 制定最多运行N个线程
+ex = ThreadPoolExecutor(max_workers=3)
+
+
+def func(num):
+    print(&quot;线程名：&quot;,threading.current_thread(),&quot;我的编号为&quot;,num)
+    time.sleep(1)
+    return &quot;我是返回值&quot;
+
+
+# 返回future对象
+f = ex.submit(func, 1)
+print(f.done())
+time.sleep(1.5)
+print(f.done())
+print(&quot;done结束&quot;)
+print(f.result())
+print(&quot;done结束，result结束&quot;)
+
+out：
+线程名： &lt;Thread(ThreadPoolExecutor-0_0, started daemon 12200)&gt; 我的编号为 1
+False
+True
+done结束
+我是返回值
+done结束，result结束
+</code></pre>
+<p>限制的max_workers，最多只有两个一起执行。可以一起放，但是上面的不结束下面的不执行</p>
+<p><strong>使用map方法替换submit方法</strong></p>
+<p>map会将可迭代的对象进行迭代后传入方法汇总，在将方法放入池子内部</p>
+<p>map会返回一个生成器，在函数的任务结束后生成。返回值是严格按照传入的顺序返回的</p>
+<p>生成器的值为return后的返回值。</p>
+<pre><code class="language-python">import threading
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+# 制定最多运行N个线程
+ex = ThreadPoolExecutor(max_workers=2)
+
+
+def func(num):
+    print(&quot;线程名：&quot;,threading.current_thread(),&quot;我的编号为&quot;,num)
+    time.sleep(1)
+    return num
+
+
+ret = ex.map(func,[i for i in range(10)])
+
+for i in ret :
+    print(&quot;返回值是：&quot;,i)
+
+
+out:
+线程名： &lt;Thread(ThreadPoolExecutor-0_0, started daemon 3372)&gt; 我的编号为 0
+线程名： &lt;Thread(ThreadPoolExecutor-0_1, started daemon 11292)&gt; 我的编号为 1
+线程名：返回值是：  0
+&lt;Thread(ThreadPoolExecutor-0_0, started daemon 3372)&gt; 我的编号为 2
+线程名： &lt;Thread(ThreadPoolExecutor-0_1, started daemon 11292)&gt; 我的编号为 3
+返回值是： 1
+线程名： 返回值是： 2
+&lt;Thread(ThreadPoolExecutor-0_0, started daemon 3372)&gt; 我的编号为 4
+线程名：返回值是： 3
+ &lt;Thread(ThreadPoolExecutor-0_1, started daemon 11292)&gt; 我的编号为 5
+线程名：返回值是： 4
+ &lt;Thread(ThreadPoolExecutor-0_0, started daemon 3372)&gt; 我的编号为 6
+线程名：返回值是： 5
+ &lt;Thread(ThreadPoolExecutor-0_1, started daemon 11292)&gt; 我的编号为 7
+线程名： 线程名： &lt;Thread(ThreadPoolExecutor-0_0, started daemon 3372)&gt; 我的编号为返回值是： 6
+返回值是： 7
+&lt;Thread(ThreadPoolExecutor-0_1, started daemon 11292)&gt; 我的编号为 8
+ 9
+返回值是： 8
+返回值是： 9
+</code></pre>
+<p>使用<code>as_completed</code>这个函数是为<code>submit</code>而生的</p>
+<p>你总想通过一种办法来解决<code>submit</code>后啥时候完成的吧 , 而不是一次次调用<code>future.done</code>或者使用<code>future.result</code>吧。
+<code>concurrent.futures.as_completed(fs, timeout=None)</code> 返回一个生成器,在迭代过程中会阻塞。
+直到线程完成或者异常时,产生一个<code>Future</code>对象。
+同时注意, <code>map</code>方法返回是有序的, <code>as_completed</code>是那个哪个先完成/失败就返回。</p>
+<p><code>wait</code> 是阻塞函数,第一个参数和<code>as_completed</code>一样, 一个可迭代的<code>future</code>序列,返回一个元组 ,包含2 个<code>set</code> , 一个完成的，一个未完成的</p>
+<p>最后说一下回调：<code>add_done_callback(fn)</code>，回调函数是在调用线程完成后再调用的，在同一个线程中.</p>
+<h2 id="6进程间的通信"><a class="header" href="#6进程间的通信">6.进程间的通信</a></h2>
+<h3 id="61队列"><a class="header" href="#61队列">6.1队列</a></h3>
+<p>主进程创建的子进程是无法获取主进程中的数据的。</p>
+<p>进程间的资源是不共享的，无法使用之前的普通的队列Queue来实现。</p>
+<p>要使用新的队列</p>
+<pre><code class="language-python">import multiprocessing
+q = multiprocessing.Queue()
+</code></pre>
+<p>放入：put</p>
+<p>取出：get</p>
+<blockquote>
+<p>上述两个，如果手动指定方法的block参数为False</p>
+<p>那么，当之前需要阻塞的情况会立马抛出异常</p>
+<p>1）如果block使用默认值，且没有设置timeout（单位秒），消息列队如果为空，此时程序将被阻塞（停在读取状态），直到从消息列队读到消息为止，如果设置了timeout，则会等待timeout秒， 若还没读取到任何消息，则抛出&quot;Queue.Empty&quot;异常；
+2）如果block值为False，消息列队如果为空，则会立刻抛出&quot;Queue.Empty&quot;异常；
+Queue.get_nowait()：相当Queue.get(False)； Queue.put(item,[block[, timeout]])：将item消息写入队列，block默认值为True；
+1）如果block使用默认值，且没有设置timeout（单位秒），消息列队如果已经没有空间可写入， 此时程序将被阻塞（停在写入状态），直到从消息列队腾出空间为止，如果设置了timeout，则会 等待timeout秒，若还没空间，则抛出&quot;Queue.Full&quot;异常；
+2）如果block值为False，消息列队如果没有空间可写入，则会立刻抛出&quot;Queue.Full&quot;异常；
+Queue.put_nowait(item)：相当Queue.put(item, False)； </p>
+</blockquote>
+<p>判断是否为空：empty</p>
+<p>判断是否满：full</p>
+<p>数量：qsize</p>
+<p><strong>例子：</strong></p>
+<pre><code class="language-python">import multiprocessing
+import random
+import time
+
+q = multiprocessing.Queue()
+
+
+def producer(q):
+    # 生产骨头
+    count = 0
+    while True:
+        count += 1
+        s = &quot;骨头%s号&quot;%count
+        print(&quot;生产了&quot;, s)
+        q.put(s)
+        time.sleep(random.random())
+
+
+def dog(q):
+    # 消费骨头
+    num = 0
+    while True:
+        print(f&quot;小狗{num}吃掉了{q.get()}&quot;)
+        num += 1
+        time.sleep(random.random())
+
+
+if __name__ == '__main__':
+    p1 = multiprocessing.Process(target=producer, args=(q,))
+    p2 = multiprocessing.Process(target=dog,args=(q,))
+
+    p1.start()
+    p2.start()
+    p1.join()
+    p2.join()
+
+out:
+生产了 骨头1号
+小狗0吃掉了骨头1号
+生产了 骨头2号
+小狗1吃掉了骨头2号
+生产了 骨头3号
+小狗2吃掉了骨头3号
+生产了 骨头4号
+小狗3吃掉了骨头4号
+生产了 骨头5号
+小狗4吃掉了骨头5号
+生产了 骨头6号
+小狗5吃掉了骨头6号
+生产了 骨头7号
+小狗6吃掉了骨头7号
+生产了 骨头8号
+小狗7吃掉了骨头8号
+生产了 骨头9号
+生产了 骨头10号
+小狗8吃掉了骨头9号
+生产了 骨头11号
+</code></pre>
+<p>==在进程间进行共享数据的时候，必须将数据作为参数传入进程中，不能使用全局变量。==</p>
+<p>==这一点是和线程不同的==</p>
+<h3 id="62进程池"><a class="header" href="#62进程池">6.2进程池</a></h3>
+<pre><code class="language-python">from concurrent.futures import ProcessPoolExecutor
+import time
+
+
+def func1():
+    print(&quot;A&quot;)
+    time.sleep(1)
+
+
+def func2():
+    print(&quot;B&quot;)
+    time.sleep(1)
+
+
+if __name__ == '__main__':
+    p = ProcessPoolExecutor()
+    f1 = p.submit(func1)
+    f2 = p.submit(func2)
+    print(f1)
+    print(f2)
+    p.shutdown()
+    print(f1)
+    print(f2)
+
+
+out:
+&lt;Future at 0x245a4dd5708 state=running&gt;
+&lt;Future at 0x245a4e1c988 state=pending&gt;
+A
+B
+&lt;Future at 0x245a4dd5708 state=finished returned NoneType&gt;
+&lt;Future at 0x245a4e1c988 state=finished returned NoneType&gt;
+</code></pre>
+<blockquote>
+<p><code>shutdown</code>方法会调用<code>join</code>和<code>close</code>，不用一个个执行</p>
+<p><code>submit</code>方法一样是返回的一个<code>future</code>，获取返回值用<code>future.result()</code>方法来获取</p>
+</blockquote>
+<p><code>concurrent.futures</code>模块的基础是<code>Exectuor</code>，<code>Executor</code>是一个抽象类，它不能被直接使用。</p>
+<p>但是它提供的两个子类<code>ThreadPoolExecutor</code>和<code>ProcessPoolExecutor</code>却是非常有用，顾名思义两者分别被用来创建线程池和进程池的代码。</p>
+<p>我们可以将相应的<code>tasks</code>直接放入线程池/进程池，不需要维 护<code>Queue</code>来操心死锁的问题，线程池/进程池会自动帮我们调度。</p>
+<p><code>Future</code>这个概念，你可以把它理解为一个在未来完成的操作，这是异步编程的基础，传统编程模式下比如我们操作<code>queue.get</code>的时候，在等待返回结果之前会产生阻塞，<code>cpu</code>不能让出来做其他事情，而<code>Future</code>的引入帮助我们在等待的这段时间可以完成其他的操作。 </p>
+<p><code>Executor</code>中定义了 <code>submit()</code> 方法，这个方法的作用是提交一个可执行的回调<code>task</code> ，并返回一个<code>future</code>实例。</p>
+<p><code>future</code>对象代表的就是给定的调用。 <code>submit()</code> 方法实现进程池/线程池</p>
+<blockquote>
+<p><code>p.submit(task,i)</code>默认为异步执行， <code>p.submit(task,i).result()</code>即同步执行</p>
+</blockquote>
+<p><strong>进程池之间的的通信</strong></p>
+<pre><code class="language-python">import multiprocessing
+from concurrent.futures import ProcessPoolExecutor
+import random
+import time
+
+
+def producer(q):
+    # 生产骨头
+    count = 0
+    while True:
+        count += 1
+        s = &quot;骨头%s号&quot; % count
+        print(&quot;生产了&quot;, s)
+        q.put(s)
+        time.sleep(random.random())
+
+
+def dog(q):
+    # 消费骨头
+    num = 0
+    while True:
+        print(f&quot;小狗{num}吃掉了{q.get()}&quot;)
+        num += 1
+        time.sleep(random.random())
+
+
+if __name__ == '__main__':
+    # 进程池之间的通信不能使用下面这个Queue
+    # q = multiprocessing.Queue()
+    # 要使用这个队列
+    q = multiprocessing.Manager().Queue()
+    p = ProcessPoolExecutor()
+    p1 = p.submit(producer, q)
+    p2 = p.submit(dog, q)
+    p.shutdown()
+
+    
+out:
+生产了 骨头1号
+小狗0吃掉了骨头1号
+生产了 骨头2号
+小狗1吃掉了骨头2号
+生产了 骨头3号
+小狗2吃掉了骨头3号
+生产了 骨头4号
+小狗3吃掉了骨头4号
+生产了 骨头5号
+生产了 骨头6号
+小狗4吃掉了骨头5号
+生产了 骨头7号
+小狗5吃掉了骨头6号
+生产了 骨头8号
+生产了 骨头9号
+小狗6吃掉了骨头7号
+</code></pre>
+<p><code>multiprocessing.Manager().Queue()</code>，进程池之间的通信必须使用这个队列。</p>
+<h2 id="7协程"><a class="header" href="#7协程">7.协程</a></h2>
+<p>协程不会出现资源互抢的问题</p>
+<p>协程实际上就是线程内部多个函数的不停切换执行（避免耗时操作）</p>
+<p>协程是依赖生成器的</p>
+<p>生成器可以暂停函数，同时切换到其他函数去执行</p>
+<p>关键字<code>yield</code></p>
+<p>之前的生成器是为了产生数据使用的（惰性查询，惰性生成数据）</p>
+<p>生成器是为了接受数据存在的，那么它就变成了协程</p>
+<p>协程中最重要的是<code>send</code>方法，用来传输数据</p>
+<h3 id="71实现简单的协程"><a class="header" href="#71实现简单的协程">7.1实现简单的协程</a></h3>
+<pre><code class="language-python">import time
+
+def func1():
+    print(&quot;A&quot;)
+    yield
+    time.sleep(1)
+
+def func2():
+    print(&quot;B&quot;)
+    yield
+    time.sleep(1)
+
+# 产生生成器
+g1 = func1()
+g2 = func2()
+
+next(g1)
+next(g2)
+next(g1)
+
+out：
+
+A
+B
+Traceback (most recent call last):
+  File &quot;D:/PyCharm Workspace/Python进阶/test.py&quot;, line 19, in &lt;module&gt;
+    next(g1)
+StopIteration
+</code></pre>
+<p>A和B同时打印，然后报错。这个不是协程，是生成器，因为没有接受数据。</p>
+<p>那么给生成器加一个装饰器，在调用的时候预激活就行了。</p>
+<p>预激活必须使用<code>send(None)</code>或<code>next()</code></p>
+<h3 id="72结合装饰器"><a class="header" href="#72结合装饰器">7.2结合装饰器</a></h3>
+<pre><code class="language-python">import time
+from functools import wraps
+
+def coroutine(func):
+    @wraps(func)
+    def primer(*args,**kwargs):
+        gen = func(*args,**kwargs)
+        next(gen)
+        return gen
+    return primer
+
+
+@coroutine
+def func1():
+    print(&quot;A   1&quot;)
+    yield
+    time.sleep(1)
+    print(&quot;A   2&quot;)
+    return &quot;A完毕&quot;
+
+@coroutine
+def func2():
+    print(&quot;B   1&quot;)
+    yield
+    time.sleep(1)
+    print(&quot;B   2&quot;)
+    return &quot;B完毕&quot;
+
+
+# 产生生成器
+g1 = func1()
+g2 = func2()
+
+try:
+    g1.send(None)
+except StopIteration as e:
+    print(e)
+
+try:
+    g2.send(None)
+except StopIteration as e:
+    print(e)
+
+out：
+A   1
+B   1
+A   2
+A完毕
+B   2
+B完毕
+
+</code></pre>
+<p><code>submit</code>是默认异步执行，后面可以添加<code>.result()</code>来指定立即执行</p>
+<h3 id="73使用greenlet"><a class="header" href="#73使用greenlet">7.3使用greenlet</a></h3>
+<p>​	需要使用<code>switch()</code>手动切，</p>
+<p>​	缺点</p>
+<ul>
+<li>
+<p>如果方法很多要切，那么就很麻烦。</p>
+</li>
+<li>
+<p>没有时间并发</p>
+</li>
+</ul>
+<h3 id="74使用gevent"><a class="header" href="#74使用gevent">7.4使用gevent</a></h3>
+<p>基于<code>greenlet</code>封装。</p>
+<p>里面有<code>gevent.sleep(1)</code>来休眠。不支持<code>time</code>模块。</p>
+<p><code>join()</code>就执行了，但是所有都执行了，因为所有方法都在一个线程里。</p>
+<p><code>spawn</code>会切换。</p>
+<p>尽量不用<code>join</code>，用<code>gevent.joinall([gevent.spawn(func1),……])</code></p>
+<p>会一直阻塞，除非所有的全跑完。</p>
+<p>为了支持<code>time</code></p>
+<p>要<code>from gevent import monkey</code></p>
+<p><code>monkey.patch_all()</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../Python/Python高阶-3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../Python/Python高阶-5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../Python/Python高阶-3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../Python/Python高阶-5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

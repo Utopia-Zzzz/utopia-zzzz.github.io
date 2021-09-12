@@ -1,0 +1,678 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Python高阶-5 - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">4.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">4.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">5.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">5.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">6.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">6.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">7.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">8.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">8.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">8.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">9.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 网络基础</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">11.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/vim编辑器.html"><strong aria-hidden="true">12.1.</strong> vim编辑器</a></li><li class="chapter-item expanded "><a href="../Linux/初始命令.html"><strong aria-hidden="true">12.2.</strong> 初始命令</a></li><li class="chapter-item expanded "><a href="../Linux/文件内容操作命令.html"><strong aria-hidden="true">12.3.</strong> 文件内容操作命令</a></li><li class="chapter-item expanded "><a href="../Linux/网络命令等.html"><strong aria-hidden="true">12.4.</strong> 网络命令等</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">13.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">13.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">13.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">14.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">14.2.</strong> Gitlab-ce 备份和恢复</a></li><li class="chapter-item expanded "><a href="../Git/保存本地commit记录的同时合并提交到origin.html"><strong aria-hidden="true">14.3.</strong> 保存本地 commit 记录的同时合并提交到 origin</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">15.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">15.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">15.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">15.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">15.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">15.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">15.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">15.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">15.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">15.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">15.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html"><strong aria-hidden="true">16.1.</strong> 单点登录</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Python</li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> 乱七八糟</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Flask入门.html"><strong aria-hidden="true">17.1.</strong> Flask入门</a></li><li class="chapter-item expanded "><a href="../Python/HTTPserver.html"><strong aria-hidden="true">17.2.</strong> HTTPserver</a></li><li class="chapter-item expanded "><a href="../Python/Python数据结构.html"><strong aria-hidden="true">17.3.</strong> Python数据结构</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-1.html"><strong aria-hidden="true">17.4.</strong> Python高阶-1</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-2.html"><strong aria-hidden="true">17.5.</strong> Python高阶-2</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-3.html"><strong aria-hidden="true">17.6.</strong> Python高阶-3</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-4.html"><strong aria-hidden="true">17.7.</strong> Python高阶-4</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-5.html" class="active"><strong aria-hidden="true">17.8.</strong> Python高阶-5</a></li><li class="chapter-item expanded "><a href="../Python/爬坑1-10.html"><strong aria-hidden="true">17.9.</strong> 爬坑1-10</a></li><li class="chapter-item expanded "><a href="../Python/爬坑11-20.html"><strong aria-hidden="true">17.10.</strong> 爬坑11-20</a></li><li class="chapter-item expanded "><a href="../Python/爬坑21-30.html"><strong aria-hidden="true">17.11.</strong> 爬坑21-30</a></li><li class="chapter-item expanded "><a href="../Python/爬坑31-40.html"><strong aria-hidden="true">17.12.</strong> 爬坑31-40</a></li><li class="chapter-item expanded "><a href="../Python/爬坑41-50.html"><strong aria-hidden="true">17.13.</strong> 爬坑41-50</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">算法</li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> LeetCode</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Algorithm/各种排序算法的比较.html"><strong aria-hidden="true">18.1.</strong> 各种排序算法的比较</a></li><li class="chapter-item expanded "><a href="../Algorithm/斐波那契进阶.html"><strong aria-hidden="true">18.2.</strong> 斐波那契进阶</a></li><li class="chapter-item expanded "><a href="../Algorithm/1-两数之和.html"><strong aria-hidden="true">18.3.</strong> 1-两数之和</a></li><li class="chapter-item expanded "><a href="../Algorithm/2-两数相加.html"><strong aria-hidden="true">18.4.</strong> 2-两数相加</a></li><li class="chapter-item expanded "><a href="../Algorithm/3-无重复字符的最长子串.html"><strong aria-hidden="true">18.5.</strong> 3-无重复字符的最长子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/4-寻找两个有序数组的中位数.html"><strong aria-hidden="true">18.6.</strong> 4-寻找两个有序数组的中位数</a></li><li class="chapter-item expanded "><a href="../Algorithm/5-最长回文子串.html"><strong aria-hidden="true">18.7.</strong> 5-最长回文子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/6-Z字形变换.html"><strong aria-hidden="true">18.8.</strong> 6-Z字形变换</a></li><li class="chapter-item expanded "><a href="../Algorithm/7-整数翻转.html"><strong aria-hidden="true">18.9.</strong> 7-整数翻转</a></li><li class="chapter-item expanded "><a href="../Algorithm/92-反转链表②.html"><strong aria-hidden="true">18.10.</strong> 92-反转链表②</a></li><li class="chapter-item expanded "><a href="../Algorithm/206-反转链表.html"><strong aria-hidden="true">18.11.</strong> 206-反转链表</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1偏函数"><a class="header" href="#1偏函数">1.偏函数</a></h1>
+<p>可以指定函数的参数值为固定的数字</p>
+<p>解除了数量的限制</p>
+<pre><code class="language-python">from functiontools import partial
+
+func2 = partial(func , c = 1)
+</code></pre>
+<p>不指定key，就是按位置传。</p>
+<p>按关键字传，然后调用的时候也要按关键字传。</p>
+<h1 id="2新协程"><a class="header" href="#2新协程">2.新协程</a></h1>
+<p><code>async</code>和<code>await</code>关键字。</p>
+<p>使用<code>async</code>修饰方法，</p>
+<p><code>await</code>后面切</p>
+<p>进入第二个协程对象。</p>
+<p>使用<code>send</code>调用。</p>
+<p>还需要手动捕获异常</p>
+<p>一般结合时间循环队列使用。</p>
+<p>使用asyncio的get_event_loop()</p>
+<p>task = loop.create_task(g2)</p>
+<p>添加回调函数</p>
+<p>task.add_done_callback(func3)</p>
+<p>loop.run_until_complete(task)</p>
+<p>实现并发：</p>
+<p>asyncio的map方法</p>
+<h1 id="3socket编程"><a class="header" href="#3socket编程">3.<code>Socket</code>编程</a></h1>
+<h2 id="31udp发送数据"><a class="header" href="#31udp发送数据">3.1<code>UDP</code>发送数据</a></h2>
+<p>例子</p>
+<pre><code class="language-python">import socket
+
+udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+data = &quot;你好&quot;.encode()
+
+add = (&quot;192.168.1.1&quot;,8080)
+
+udp_socket.sendto(data,add)
+
+udp_socket.close()
+</code></pre>
+<h2 id="32udp接受数据"><a class="header" href="#32udp接受数据">3.2<code>UDP</code>接受数据</a></h2>
+<pre><code class="language-python">import socket
+
+udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+data = &quot;你好&quot;.encode()
+
+add = (&quot;10.25.208.79&quot;,8080)
+
+udp_socket.sendto(data,add)
+
+print(&quot;等待接受数据&quot;)
+
+data = udp_socket.recvfrom(1024) # 缓存大小，即一次可以接受最大的数据量
+print(&quot;响应：&quot;, data)
+
+udp_socket.close()
+</code></pre>
+<p><code>recvfrom</code>返回一个元组</p>
+<ul>
+<li>第一个是返回的数据</li>
+<li>第二个是对方的<code>IP</code>地址和<code>端口</code></li>
+</ul>
+<p><code>b</code>表示二进制编码。需要<code>decode()</code>解码。</p>
+<p>也可以指定绑定端口：</p>
+<pre><code class="language-python">add = (&quot;10.25.208.79&quot;, 8888)
+
+udp_socket.bind(add)
+</code></pre>
+<p>但是UDP不关心接受方是否接受。只关心是否发送出去。</p>
+<h2 id="33tcp基础操作"><a class="header" href="#33tcp基础操作">3.3<code>TCP</code>基础操作</a></h2>
+<p>主socket监听新来的连接，子socket来负责连接传输数据。</p>
+<p><strong>简单实现TCP客户端：</strong></p>
+<pre><code class="language-python">import socket
+
+# socket.SOCK_STREAM是用来创建TCp的
+tcp_client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+add = (&quot;10.25.208.65&quot;, 8080)
+
+tcp_client_socket.connect(add)
+
+tcp_client_socket.send(&quot;喝喝&quot;.encode())
+
+print(&quot;发送完成，等待接受&quot;)
+
+while True:
+    ret = tcp_client_socket.recv(1024)
+
+    print(ret.decode(&quot;gbk&quot;))
+
+tcp_client_socket.close()
+</code></pre>
+<p><strong>简单TCP服务器：</strong></p>
+<ol>
+<li>创建socket</li>
+<li>绑定IP和端口</li>
+<li>开启监听</li>
+<li>创建连接的socket</li>
+<li>进行服务</li>
+<li>关闭新的socket</li>
+<li>关闭总socket</li>
+</ol>
+<pre><code class="language-python">import socket
+
+# socket.SOCK_STREAM是用来创建TCp的
+tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+add = (&quot;10.25.208.65&quot;, 5555)
+tcp_server_socket.bind(add)
+
+# 指定最大连接
+print(&quot;开启监听&quot;)
+tcp_server_socket.listen(5)
+
+# 会返回一个元组
+# 第一个元素就是新socket，用来和客户端进行数据传输的
+# 第二个元素是客户端的地址信息
+client_socket, add = tcp_server_socket.accept()
+print(&quot;有客户端连接&quot;)
+print(client_socket)
+print(add)
+
+# 发送数据
+client_socket.send(&quot;开始服务&quot;.encode())
+retData = client_socket.recv(1024)
+print(&quot;接受数据：&quot;,retData.decode(&quot;gbk&quot;))
+
+tcp_server_socket.close()
+</code></pre>
+<p><strong>完善版本的TCP服务器：</strong></p>
+<pre><code class="language-python">import socket
+
+# socket.SOCK_STREAM是用来创建TCp的
+tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+add = (&quot;10.25.208.65&quot;, 5555)
+tcp_server_socket.bind(add)
+
+# 指定最大连接
+print(&quot;开启监听&quot;)
+tcp_server_socket.listen(5)
+
+# 会返回一个元组
+# 第一个元素就是新socket，用来和客户端进行数据传输的
+# 第二个元素是客户端的地址信息
+try:
+    while True:
+        client_socket, add = tcp_server_socket.accept()
+        print(&quot;有客户端连接&quot;)
+        print(client_socket)
+        print(add)
+
+        # 发送数据
+        client_socket.send(&quot;开始服务&quot;.encode())
+        try:
+            while True:
+                retData = client_socket.recv(1024)
+                if retData:
+                    print(&quot;接受数据：&quot;, retData.decode(&quot;gbk&quot;))
+                else:
+                    raise Exception(&quot;连接已关闭&quot;)
+        except Exception as e:
+            print(&quot;内部报错：&quot;, e)
+        finally:
+            client_socket.close()
+except Exception as e:
+    print(e)
+finally:
+    tcp_server_socket.close()
+</code></pre>
+<p>首次循环是为了服务多个客户端</p>
+<p>第二次循环是为了单个客户端的多次发送消息</p>
+<p><strong>多进程版本</strong></p>
+<pre><code class="language-python">import multiprocessing
+import socket
+
+
+def client_server(client_socket, add):
+    print(&quot;有客户端连接&quot;)
+    print(client_socket)
+    print(add)
+
+    # 发送数据
+    client_socket.send(&quot;开始服务&quot;.encode())
+
+    try:
+        while True:
+            retData = client_socket.recv(1024)
+            if retData:
+                print(&quot;接受数据：&quot;, retData.decode(&quot;gbk&quot;))
+            else:
+                raise Exception(&quot;连接已关闭&quot;)
+    except Exception as e:
+        print(&quot;内部报错：&quot;, e)
+    finally:
+        client_socket.close()
+
+
+if __name__ == '__main__':
+    # socket.SOCK_STREAM是用来创建TCp的
+    tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    add = (&quot;10.25.208.65&quot;, 5555)
+    tcp_server_socket.bind(add)
+
+    # 指定最大连接
+    print(&quot;开启监听&quot;)
+    tcp_server_socket.listen(5)
+
+    # 会返回一个元组
+    # 第一个元素就是新socket，用来和客户端进行数据传输的
+    # 第二个元素是客户端的地址信息
+    try:
+        while True:
+            client_socket, add = tcp_server_socket.accept()
+
+            p = multiprocessing.Process(target=client_server,args=(client_socket,add))
+
+            p.start()
+
+    except Exception as e:
+        print(e)
+    finally:
+        tcp_server_socket.close()
+</code></pre>
+<p><strong>多线程版本</strong></p>
+<pre><code class="language-python">import threading
+import socket
+
+
+def client_server(client_socket, add):
+    print(&quot;有客户端连接&quot;)
+    print(client_socket)
+    print(add)
+
+    # 发送数据
+    client_socket.send(&quot;开始服务&quot;.encode())
+
+    try:
+        while True:
+            retData = client_socket.recv(1024)
+            if retData:
+                print(&quot;接受数据：&quot;, retData.decode(&quot;gbk&quot;))
+            else:
+                raise Exception(&quot;连接已关闭&quot;)
+    except Exception as e:
+        print(add, e)
+    finally:
+        client_socket.close()
+
+
+if __name__ == '__main__':
+    # socket.SOCK_STREAM是用来创建TCp的
+    tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    add = (&quot;10.25.208.65&quot;, 5555)
+    tcp_server_socket.bind(add)
+
+    # 指定最大连接
+    print(&quot;开启监听&quot;)
+    tcp_server_socket.listen(5)
+
+    # 会返回一个元组
+    # 第一个元素就是新socket，用来和客户端进行数据传输的
+    # 第二个元素是客户端的地址信息
+    try:
+        while True:
+            client_socket, add = tcp_server_socket.accept()
+
+            t = threading.Thread(target=client_server,args=(client_socket,add))
+
+            t.start()
+
+    except Exception as e:
+        print(e)
+    finally:
+        tcp_server_socket.close()
+</code></pre>
+<p><strong>协程版本</strong></p>
+<pre><code class="language-python"># import threading
+import socket
+import gevent
+from gevent import monkey
+
+
+def client_server(client_socket, add):
+    print(&quot;有客户端连接&quot;)
+    print(client_socket)
+    print(add)
+
+    # 发送数据
+    client_socket.send(&quot;开始服务&quot;.encode())
+    gevent.sleep(1)
+    try:
+        while True:
+            retData = client_socket.recv(1024)
+            if retData:
+                print(&quot;接受数据：&quot;, retData.decode(&quot;gbk&quot;))
+            else:
+                raise Exception(&quot;连接已关闭&quot;)
+    except Exception as e:
+        print(add, e)
+    finally:
+        client_socket.close()
+
+
+if __name__ == '__main__':
+
+    monkey.patch_all()
+
+    # socket.SOCK_STREAM是用来创建TCP的
+    tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    add = (&quot;10.25.208.65&quot;, 5555)
+    tcp_server_socket.bind(add)
+
+    # 指定最大连接
+    print(&quot;开启监听&quot;)
+    tcp_server_socket.listen(5)
+
+    # 会返回一个元组
+    # 第一个元素就是新socket，用来和客户端进行数据传输的
+    # 第二个元素是客户端的地址信息
+    try:
+        while True:
+            client_socket, add = tcp_server_socket.accept()
+
+            gevent.spawn(client_server,client_socket, add)
+
+    except Exception as e:
+        print(e)
+    finally:
+        tcp_server_socket.close()
+</code></pre>
+<h2 id="34tcp详解"><a class="header" href="#34tcp详解">3.4<code>TCP</code>详解</a></h2>
+<h3 id="341三次握手"><a class="header" href="#341三次握手">3.4.1三次握手</a></h3>
+<ol>
+<li>
+<p>客户端：喂，你听得到么？</p>
+</li>
+<li>
+<p>服务端：①嗯，我听得到你说话。②你听得到我说话么</p>
+</li>
+<li>
+<p>客户端：嗯，我也听得到。</p>
+<p>开始聊天</p>
+</li>
+</ol>
+<img src="https://img-blog.csdn.net/20180717202520531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"/>
+<ul>
+<li>
+<p>第一次握手：建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）。</p>
+</li>
+<li>
+<p>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；==其实可以理解为是两次发送数据，第一次确认，第二次自己也发送类似第一次握手的消息。但是，实际上只有一个数据包==</p>
+</li>
+<li>
+<p>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
+</li>
+</ul>
+<h3 id="342四次挥手"><a class="header" href="#342四次挥手">3.4.2四次挥手</a></h3>
+<ol>
+<li>
+<p>客户端：我要关闭连接了，然后客户端进入半关闭状态。</p>
+</li>
+<li>
+<p>服务端：好的，我知道了。</p>
+</li>
+<li>
+<p>服务端：我也要关闭连接了，然后服务器进入半关闭状态。</p>
+</li>
+<li>
+<p>客户端：好的，我知道了。</p>
+</li>
+</ol>
+<img src="https://images2015.cnblogs.com/blog/606573/201703/606573-20170317191417963-1010313216.png"/>
+<p>先由客户端向服务器端发送一个FIN，请求关闭数据传输。</p>
+<p>当服务器接收到客户端的FIN时，向客户端发送一个ACK，其中ack的值等于FIN+SEQ</p>
+<p>然后服务器向客户端发送一个FIN，告诉客户端应用程序关闭。</p>
+<p>当客户端收到服务器端的FIN是，回复一个ACK给服务器端。其中ack的值等于FIN+SEQ</p>
+<p><strong>为什么要4次挥手？</strong></p>
+<p>确保数据能够完整传输。</p>
+<p>当被动方收到主动方的FIN报文通知时，它仅仅表示主动方没有数据再发送给被动方了。</p>
+<p>但未必被动方所有的数据都完整的发送给了主动方，所以被动方不会马上关闭SOCKET,它可能还需要发送一些数据给主动方后，</p>
+<p>再发送FIN报文给主动方，告诉主动方同意关闭连接，所以这里的ACK报文和FIN报文多数情况下都是分开发送的。</p>
+<h1 id="4元类"><a class="header" href="#4元类">4.元类</a></h1>
+<p>所有可以实例化对象的类，打印type都是元类</p>
+<p>所有不可以实例化对象的东西，打印type都是父级类</p>
+<pre><code class="language-python">num = int()
+print(type(int))
+print(num)
+print(type(num))
+
+out：
+&lt;class 'type'&gt;
+0
+&lt;class 'int'&gt;
+</code></pre>
+<h2 id="41元类的使用"><a class="header" href="#41元类的使用">4.1元类的使用</a></h2>
+<h3 id="411定义类"><a class="header" href="#411定义类">4.1.1定义类：</a></h3>
+<p><code>type(类名，由父类名称组成的元组(针对继承的情况，可以为空)，属性字典)</code></p>
+<pre><code class="language-python">Dog = type(&quot;Dog&quot;,(),{})
+dog = Dog()
+print(type(Dog))
+print(type(dog))
+
+out:
+&lt;class 'type'&gt;
+&lt;class '__main__.Dog'&gt;
+</code></pre>
+<p>属性填入后，是在类属性中。</p>
+<p>不是实例属性。</p>
+<h3 id="412创建带方法的类"><a class="header" href="#412创建带方法的类">4.1.2创建带方法的类</a></h3>
+<p>方法也是属性，类型是Function的。</p>
+<p>直接在属性字典中添加就可以了。</p>
+<pre><code class="language-python">def eat(self):
+    print(&quot;小狗在吃&quot;)
+
+
+Dog = type(&quot;Dog&quot;,(),{&quot;eat&quot;:eat})
+
+dog = Dog()
+
+dog.eat()
+
+out:
+小狗在吃
+</code></pre>
+<blockquote>
+<p>注意，定义方法的时候，第一个参数必须为<code>self</code></p>
+</blockquote>
+<p>创建带实例属性的类，就是把<code>init</code>方法传</p>
+<h3 id="413metaclass属性"><a class="header" href="#413metaclass属性">4.1.3<code>metaclass</code>属性</a></h3>
+<p>元类可以拦截类的创建过程，修改类创建的时候的一些内容。</p>
+<p>例子：</p>
+<p>创建类的时候将所有属性名都换成大写的。</p>
+<pre><code class="language-python">def upper_attr_name(class_name,class_parents_name,class_attr):
+
+    # 一些在创建类之前的操作
+    print(class_attr)
+    newAttr = {}
+    for name, value in class_attr.items():
+        if not name.startswith(&quot;__&quot;):
+            newAttr[name.upper()] = value
+
+    return type(class_name,class_parents_name,newAttr)
+
+
+class A(object,metaclass=upper_attr_name):
+    name = &quot;Hello A&quot;
+
+
+# class B(object):
+#     name = &quot;Hello B&quot;
+#     # python2 中这么写
+#     __metaclass__ = upper_attr_name
+
+
+# print(A.name)
+print(A.NAME)
+
+
+out:
+{'__module__': '__main__', '__qualname__': 'A', 'name': 'Hello A'}
+Hello A
+</code></pre>
+<h1 id="5垃圾回收"><a class="header" href="#5垃圾回收">5.垃圾回收</a></h1>
+<h2 id="51引用计数"><a class="header" href="#51引用计数">5.1引用计数</a></h2>
+<p>对象被引用的时候引用计数+1，引用取消的时候计数-1，计数为0的时候会释放内存。</p>
+<h2 id="52垃圾回收"><a class="header" href="#52垃圾回收">5.2垃圾回收</a></h2>
+<p>内存超过一定值的时候会进行垃圾回收，保持良好的内存使用。</p>
+<h3 id="521环形结构"><a class="header" href="#521环形结构">5.2.1环形结构</a></h3>
+<p>环形结构永远不会被外部变量引用。</p>
+<p>那么这两个变量就是垃圾</p>
+<p>可以手动<code>gc.collect()</code>启动垃圾回收</p>
+<h3 id="522分代回收"><a class="header" href="#522分代回收">5.2.2分代回收</a></h3>
+<p>按某些规定扫描垃圾之后还存活的对象，会放入一代目。</p>
+<p>下次扫描的时候不会扫描这些一代目的对象。</p>
+<p>在某些次数过后，扫描一遍一代目。</p>
+<p>还存活的放入二代目。</p>
+<p>新建的都是零代目。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../Python/Python高阶-4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../Python/爬坑1-10.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../Python/Python高阶-4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../Python/爬坑1-10.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>爬坑1-10 - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">4.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">4.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">5.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">5.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">6.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">6.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">7.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">8.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">8.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">8.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">9.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 网络基础</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">11.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/vim编辑器.html"><strong aria-hidden="true">12.1.</strong> vim编辑器</a></li><li class="chapter-item expanded "><a href="../Linux/初始命令.html"><strong aria-hidden="true">12.2.</strong> 初始命令</a></li><li class="chapter-item expanded "><a href="../Linux/文件内容操作命令.html"><strong aria-hidden="true">12.3.</strong> 文件内容操作命令</a></li><li class="chapter-item expanded "><a href="../Linux/网络命令等.html"><strong aria-hidden="true">12.4.</strong> 网络命令等</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">13.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">13.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">13.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">14.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">14.2.</strong> Gitlab-ce 备份和恢复</a></li><li class="chapter-item expanded "><a href="../Git/保存本地commit记录的同时合并提交到origin.html"><strong aria-hidden="true">14.3.</strong> 保存本地 commit 记录的同时合并提交到 origin</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">15.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">15.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">15.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">15.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">15.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">15.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">15.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">15.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">15.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">15.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">15.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html"><strong aria-hidden="true">16.1.</strong> 单点登录</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Python</li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> 乱七八糟</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Flask入门.html"><strong aria-hidden="true">17.1.</strong> Flask入门</a></li><li class="chapter-item expanded "><a href="../Python/HTTPserver.html"><strong aria-hidden="true">17.2.</strong> HTTPserver</a></li><li class="chapter-item expanded "><a href="../Python/Python数据结构.html"><strong aria-hidden="true">17.3.</strong> Python数据结构</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-1.html"><strong aria-hidden="true">17.4.</strong> Python高阶-1</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-2.html"><strong aria-hidden="true">17.5.</strong> Python高阶-2</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-3.html"><strong aria-hidden="true">17.6.</strong> Python高阶-3</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-4.html"><strong aria-hidden="true">17.7.</strong> Python高阶-4</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-5.html"><strong aria-hidden="true">17.8.</strong> Python高阶-5</a></li><li class="chapter-item expanded "><a href="../Python/爬坑1-10.html" class="active"><strong aria-hidden="true">17.9.</strong> 爬坑1-10</a></li><li class="chapter-item expanded "><a href="../Python/爬坑11-20.html"><strong aria-hidden="true">17.10.</strong> 爬坑11-20</a></li><li class="chapter-item expanded "><a href="../Python/爬坑21-30.html"><strong aria-hidden="true">17.11.</strong> 爬坑21-30</a></li><li class="chapter-item expanded "><a href="../Python/爬坑31-40.html"><strong aria-hidden="true">17.12.</strong> 爬坑31-40</a></li><li class="chapter-item expanded "><a href="../Python/爬坑41-50.html"><strong aria-hidden="true">17.13.</strong> 爬坑41-50</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">算法</li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> LeetCode</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Algorithm/各种排序算法的比较.html"><strong aria-hidden="true">18.1.</strong> 各种排序算法的比较</a></li><li class="chapter-item expanded "><a href="../Algorithm/斐波那契进阶.html"><strong aria-hidden="true">18.2.</strong> 斐波那契进阶</a></li><li class="chapter-item expanded "><a href="../Algorithm/1-两数之和.html"><strong aria-hidden="true">18.3.</strong> 1-两数之和</a></li><li class="chapter-item expanded "><a href="../Algorithm/2-两数相加.html"><strong aria-hidden="true">18.4.</strong> 2-两数相加</a></li><li class="chapter-item expanded "><a href="../Algorithm/3-无重复字符的最长子串.html"><strong aria-hidden="true">18.5.</strong> 3-无重复字符的最长子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/4-寻找两个有序数组的中位数.html"><strong aria-hidden="true">18.6.</strong> 4-寻找两个有序数组的中位数</a></li><li class="chapter-item expanded "><a href="../Algorithm/5-最长回文子串.html"><strong aria-hidden="true">18.7.</strong> 5-最长回文子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/6-Z字形变换.html"><strong aria-hidden="true">18.8.</strong> 6-Z字形变换</a></li><li class="chapter-item expanded "><a href="../Algorithm/7-整数翻转.html"><strong aria-hidden="true">18.9.</strong> 7-整数翻转</a></li><li class="chapter-item expanded "><a href="../Algorithm/92-反转链表②.html"><strong aria-hidden="true">18.10.</strong> 92-反转链表②</a></li><li class="chapter-item expanded "><a href="../Algorithm/206-反转链表.html"><strong aria-hidden="true">18.11.</strong> 206-反转链表</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1-关于python的变量的默认值"><a class="header" href="#1-关于python的变量的默认值">1. 关于Python的变量的默认值</a></h1>
+<p>运行以下代码，会有惊喜！</p>
+<pre><code class="language-python">def func(x,l=[]):
+    for i in range(x):
+        l.append(i*i)
+    print(l)
+
+func(2)
+func(3,[3,2,1])
+func(3)
+</code></pre>
+<p>这段代码会输出：</p>
+<pre><code class="language-out">[0, 1]
+[3, 2, 1, 0, 1, 4]
+[0, 1, 0, 1, 4]
+</code></pre>
+<p>惊不惊喜，意不意外。
+这是因为</p>
+<ul>
+<li>Python中，参数的默认值，也相当于变量一样，指向内存中的唯一的地址，除非你传进来了一个参数，改变这个参数的指向。</li>
+<li>如果你在程序的运行过程中（使用了默认变量），修改了这个变量的值（可变），那么恭喜你，你的默认参数已经变了！</li>
+</ul>
+<h1 id="2-一行代码实现1--100的和"><a class="header" href="#2-一行代码实现1--100的和">2. 一行代码实现1--100的和</a></h1>
+<p>简单点我们就用：</p>
+<pre><code class="language-python">sum(range(1,101))
+</code></pre>
+<p>这里主要要记住的就是range是返回一个==迭代器==，==左闭右开==。</p>
+<blockquote>
+<p>python2.x的range是返回的数组，</p>
+<p>python3.x的range是返回迭代器。</p>
+</blockquote>
+<p>尝试运行：</p>
+<pre><code class="language-python">print(sum(range(1, 101)))
+
+# 只是摆在这里告诉你这是最高效（NB）的写法。没任何毛病。不要死脑筋
+print(&quot;5050&quot;)
+
+print(range(1, 10))
+print(list(range(1, 10)))
+</code></pre>
+<blockquote>
+<p>out:</p>
+<p>5050
+5050
+range(1, 10)
+[1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+</blockquote>
+<p>那为什么会这样呢？其实在Python3中range()函数返回的对象很像一个列表，但是它确实不是一个列表，它只是在迭代的情况下返回指定索引的值，它并不会在内存中产生一个列表对象，官方解释说这样做是为了节约内存空间。通常我们称这种对象是可迭代的，或者是可迭代对象。</p>
+<p>这里就要引入另外一个叫迭代器的概念，迭代器可以从一个可迭代对象中连续获取指定索引的值，直到索引结束。比如list()函数，所以在上面的例子中，我们可以用list()这个迭代器将range()函数返回的对象变成一个列表。</p>
+<p>由此可以看出：range()函数返回的是一个可迭代对象（类型是对象），而不是列表类型；list() 函数是对象迭代器，把对象转为一个列表，返回的变量类型为列表。</p>
+<h1 id="3-如何在一个函数内部修改全局变量"><a class="header" href="#3-如何在一个函数内部修改全局变量">3. 如何在一个函数内部修改全局变量</a></h1>
+<p>在函数内部使用global声明，修改全局变量，作用域的知识点。</p>
+<pre><code class="language-python">a = 5
+b = 4
+
+
+def fn():
+    # 在需要修改全局变量的时候，在前面加上global修饰
+    global a
+    print(&quot;Global a: &quot;, a)
+    print(&quot;Global b: &quot;, b)
+    a = 4
+    # 此路不通，IDE都会告诉你不能执行
+    # 全局变量在不声明global的时候不能修改，但是能读取
+    # b = 5
+    print(&quot;Global a: &quot;, a)
+
+
+print(&quot;Global a: &quot;, a)
+fn()
+print(&quot;Global a: &quot;, a)
+</code></pre>
+<blockquote>
+<p>out:</p>
+<p>Global a:  5
+Global a:  5
+Global b:  4
+Global a:  4
+Global a:  4</p>
+</blockquote>
+<h1 id="4-python的几个标准库"><a class="header" href="#4-python的几个标准库">4. Python的几个标准库</a></h1>
+<table><thead><tr><th>库名</th><th>作用</th></tr></thead><tbody>
+<tr><td>os</td><td>提供了不少与操作系统相关联的函数</td></tr>
+<tr><td>sys</td><td>通常用于命令行参数</td></tr>
+<tr><td>re</td><td>正则匹配</td></tr>
+<tr><td>math</td><td>数学运算</td></tr>
+<tr><td>datetime</td><td>处理日期时间</td></tr>
+</tbody></table>
+<h1 id="5-字典如何删除键和合并两个字典"><a class="header" href="#5-字典如何删除键和合并两个字典">5. 字典如何删除键和合并两个字典</a></h1>
+<p>字典基操</p>
+<pre><code class="language-python">dic = {&quot;name&quot;: &quot;zs&quot;, &quot;age&quot;: 18}
+
+print(dic)
+
+del dic[&quot;name&quot;]
+
+print(dic)
+
+dic2 = {&quot;name&quot;: &quot;ls&quot;}
+
+dic.update(dic2)
+
+print(dic)
+</code></pre>
+<ul>
+<li>补充一下知识点，删除对象属性的时候调用<code>__delattr__()</code>或者<code>super.__delattr__()</code>或者直接使用<code>del self.__dict__[key]</code></li>
+</ul>
+<h1 id="6-关于gil锁"><a class="header" href="#6-关于gil锁">6. 关于GIL锁</a></h1>
+<ul>
+<li>
+<p>一号解释：</p>
+<p>GIL 是python的全局解释器锁，同一进程中假如有多个线程运行，一个线程在运行python程序的时候会霸占python解释器（加了一把锁即GIL），使该进程内的其他线程无法运行，等该线程运行完后其他线程才能运行。如果线程运行过程中遇到耗时操作，则解释器锁解开，使其他线程运行。所以在多线程中，线程的运行仍是有先后顺序的，并不是同时进行。</p>
+<p>多进程中因为每个进程都能被系统分配资源，相当于每个进程有了一个python解释器，所以多进程可以实现多个进程的同时运行，缺点是进程系统资源开销大。</p>
+</li>
+<li>
+<p>二号知识点：</p>
+<p>多线程和多进程是不一样的。</p>
+<p>多进程是真正的并行，而多线程是伪并行，实际上他只是交替执行。</p>
+<p>是什么导致多线程，只能交替执行呢？是一个叫 GIL（Global Interpreter Lock ，全局解释器锁）的东西。</p>
+<p>GIL的概念：</p>
+<blockquote>
+<p>任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放 GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁， 所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个 核</p>
+</blockquote>
+<p>这个是Python的解释器CPython引入的概念。还有其他解释器。但是默认的认为Python == CPython</p>
+<p>默许了Python有GIL锁这个东西。</p>
+<p>避免GIL锁的方法：</p>
+<blockquote>
+<ul>
+<li>使用多进程代替</li>
+<li>不使用CPython</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h1 id="7-python实现列表去重"><a class="header" href="#7-python实现列表去重">7. Python实现列表去重</a></h1>
+<p>Python内置的集合是没有重复值的，数据到集合（set）里跑一圈就行了。</p>
+<p>记住，是跑一圈！！！最后还要转成集合（list）</p>
+<pre><code class="language-python">lst = [11, 12, 13, 12, 15, 11, 13]
+
+tmp = set(lst)
+
+print(type(tmp))
+
+lst = [i for i in tmp]
+
+print(lst)
+</code></pre>
+<blockquote>
+<p>out:</p>
+<p>&lt;class 'set'&gt;
+[11, 12, 13, 15]</p>
+</blockquote>
+<h1 id="8阐述args和kwargs"><a class="header" href="#8阐述args和kwargs">8.阐述<code>*args</code>和<code>**kwargs</code></a></h1>
+<p><code>*args</code>和<code>*kwargs</code>主要用于函数定义。</p>
+<ul>
+<li>你可以将不定数量的参数传递给一个函数。这里的不定的意思是：预先并不知道函数使用者会传递多少个参数给你，所以在这个场景下使用这两个关键字。<code>*args</code>是用来发送一个非键值对的可变数量的参数==元组（不可变）==给一个函数</li>
+<li><code>**kwargs</code>允许你将不定长度的键值对，作为参数传递给一个函数。如果你想要在一个函数里处理带名字的参数你应该使用<code>**kwargs</code>。这里传输的是字典。</li>
+</ul>
+<p>这里有类似前端的解包的概念。</p>
+<blockquote>
+<p>补充：</p>
+<ol>
+<li>对于参数的传递，不指定key值的时候，按顺序传递。</li>
+<li>args和kwargs只是大家约定俗成写这个，也就不要乱起名字了。</li>
+</ol>
+</blockquote>
+<pre><code class="language-python">def func(a, *args, **kwargs):
+    print(type(args))
+    print(args)
+    print(type(kwargs))
+    print(kwargs)
+
+
+func(10, 20, 30, b=40, d=50)
+</code></pre>
+<blockquote>
+<p>out:</p>
+<p>&lt;class 'tuple'&gt;
+(20, 30)
+&lt;class 'dict'&gt;
+{'b': 40, 'd': 50}</p>
+</blockquote>
+<h1 id="9解释一波装饰器"><a class="header" href="#9解释一波装饰器">9.解释一波装饰器</a></h1>
+<p>对于一些可以将函数传递的语言，都可以用装饰器。</p>
+<p>装饰器（decorator）接受一个callable对象 （可以是函数或者实现了call方法的类）作为参数，并返回一个 callable对象。</p>
+<p>灵魂就是将函数A传递到另外一个函数B中，然后使用B调用A，这样可以给A增加额外的功能。</p>
+<p>简单的装饰器：</p>
+<pre><code class="language-python">def outer(my_func):
+    print(&quot;step 1 : outer&quot;)
+    def inner(num):
+        print(&quot;step 2 : 进入内部函数&quot;)
+        return my_func(num)
+    return inner
+
+
+@outer
+def my_func(num):
+    print(&quot;step 3 : my_func,传入的参数：&quot;, num)
+    num += 1
+    return &quot;加1之后：&quot; + str(num)
+
+
+print(my_func(num=100))
+</code></pre>
+<blockquote>
+<p>out:</p>
+<p>step 1 : outer
+step 2 : 进入内部函数
+step 3 : my_func,传入的参数： 100
+加1之后：101</p>
+</blockquote>
+<p>高级装饰器：</p>
+<pre><code class="language-python">def outer(str):
+    print(&quot;outer&quot;)
+    def outer1(func):
+        print(&quot;outer1&quot;)
+        def inner():
+            print(str)
+            print(&quot;inner&quot;)
+            return func()
+        return inner
+    return outer1
+
+@outer(&quot;哈哈哈&quot;)
+def func():
+    print(&quot;func&quot;)
+
+func()
+</code></pre>
+<blockquote>
+<p>out:</p>
+<p>outer
+outer1   # 到此处都是装饰的时候生成的，下面才是调用的时候生成的
+哈哈哈
+inner
+func</p>
+</blockquote>
+<p>一个用来实现函数运行时间计算的装饰器：</p>
+<pre><code class="language-python">def print_func_time(function):
+    @wraps(function)
+    def func_time(*args, **kwargs):
+        t0 = time.perf_counter()
+        result = function(*args, **kwargs)
+        t1 = time.perf_counter()
+        print(&quot;Total running time: %s s&quot; % (str(t1 - t0)))
+        return result
+    return func_time
+</code></pre>
+<h1 id="10-python常见内建数据类型"><a class="header" href="#10-python常见内建数据类型">10. Python常见内建数据类型</a></h1>
+<table><thead><tr><th>表示</th><th>含义</th></tr></thead><tbody>
+<tr><td>int</td><td>整形</td></tr>
+<tr><td>bool</td><td>布尔型</td></tr>
+<tr><td>str</td><td>字符串</td></tr>
+<tr><td>list</td><td>列表</td></tr>
+<tr><td>tuple</td><td>元组</td></tr>
+<tr><td>dict</td><td>字典</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../Python/Python高阶-5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../Python/爬坑11-20.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../Python/Python高阶-5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../Python/爬坑11-20.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

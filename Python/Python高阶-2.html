@@ -1,0 +1,825 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Python高阶-2 - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">4.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">4.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">5.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">5.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">6.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">6.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">7.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">8.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">8.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">8.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">9.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 网络基础</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">11.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/vim编辑器.html"><strong aria-hidden="true">12.1.</strong> vim编辑器</a></li><li class="chapter-item expanded "><a href="../Linux/初始命令.html"><strong aria-hidden="true">12.2.</strong> 初始命令</a></li><li class="chapter-item expanded "><a href="../Linux/文件内容操作命令.html"><strong aria-hidden="true">12.3.</strong> 文件内容操作命令</a></li><li class="chapter-item expanded "><a href="../Linux/网络命令等.html"><strong aria-hidden="true">12.4.</strong> 网络命令等</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">13.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">13.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">13.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">14.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">14.2.</strong> Gitlab-ce 备份和恢复</a></li><li class="chapter-item expanded "><a href="../Git/保存本地commit记录的同时合并提交到origin.html"><strong aria-hidden="true">14.3.</strong> 保存本地 commit 记录的同时合并提交到 origin</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">15.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">15.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">15.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">15.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">15.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">15.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">15.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">15.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">15.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">15.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">15.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html"><strong aria-hidden="true">16.1.</strong> 单点登录</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Python</li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> 乱七八糟</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Flask入门.html"><strong aria-hidden="true">17.1.</strong> Flask入门</a></li><li class="chapter-item expanded "><a href="../Python/HTTPserver.html"><strong aria-hidden="true">17.2.</strong> HTTPserver</a></li><li class="chapter-item expanded "><a href="../Python/Python数据结构.html"><strong aria-hidden="true">17.3.</strong> Python数据结构</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-1.html"><strong aria-hidden="true">17.4.</strong> Python高阶-1</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-2.html" class="active"><strong aria-hidden="true">17.5.</strong> Python高阶-2</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-3.html"><strong aria-hidden="true">17.6.</strong> Python高阶-3</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-4.html"><strong aria-hidden="true">17.7.</strong> Python高阶-4</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-5.html"><strong aria-hidden="true">17.8.</strong> Python高阶-5</a></li><li class="chapter-item expanded "><a href="../Python/爬坑1-10.html"><strong aria-hidden="true">17.9.</strong> 爬坑1-10</a></li><li class="chapter-item expanded "><a href="../Python/爬坑11-20.html"><strong aria-hidden="true">17.10.</strong> 爬坑11-20</a></li><li class="chapter-item expanded "><a href="../Python/爬坑21-30.html"><strong aria-hidden="true">17.11.</strong> 爬坑21-30</a></li><li class="chapter-item expanded "><a href="../Python/爬坑31-40.html"><strong aria-hidden="true">17.12.</strong> 爬坑31-40</a></li><li class="chapter-item expanded "><a href="../Python/爬坑41-50.html"><strong aria-hidden="true">17.13.</strong> 爬坑41-50</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">算法</li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> LeetCode</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Algorithm/各种排序算法的比较.html"><strong aria-hidden="true">18.1.</strong> 各种排序算法的比较</a></li><li class="chapter-item expanded "><a href="../Algorithm/斐波那契进阶.html"><strong aria-hidden="true">18.2.</strong> 斐波那契进阶</a></li><li class="chapter-item expanded "><a href="../Algorithm/1-两数之和.html"><strong aria-hidden="true">18.3.</strong> 1-两数之和</a></li><li class="chapter-item expanded "><a href="../Algorithm/2-两数相加.html"><strong aria-hidden="true">18.4.</strong> 2-两数相加</a></li><li class="chapter-item expanded "><a href="../Algorithm/3-无重复字符的最长子串.html"><strong aria-hidden="true">18.5.</strong> 3-无重复字符的最长子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/4-寻找两个有序数组的中位数.html"><strong aria-hidden="true">18.6.</strong> 4-寻找两个有序数组的中位数</a></li><li class="chapter-item expanded "><a href="../Algorithm/5-最长回文子串.html"><strong aria-hidden="true">18.7.</strong> 5-最长回文子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/6-Z字形变换.html"><strong aria-hidden="true">18.8.</strong> 6-Z字形变换</a></li><li class="chapter-item expanded "><a href="../Algorithm/7-整数翻转.html"><strong aria-hidden="true">18.9.</strong> 7-整数翻转</a></li><li class="chapter-item expanded "><a href="../Algorithm/92-反转链表②.html"><strong aria-hidden="true">18.10.</strong> 92-反转链表②</a></li><li class="chapter-item expanded "><a href="../Algorithm/206-反转链表.html"><strong aria-hidden="true">18.11.</strong> 206-反转链表</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1正则表达式"><a class="header" href="#1正则表达式">1.正则表达式</a></h1>
+<p>Regular Expression，正则表达式</p>
+<p>用来描述匹配规则的表达式，针对字符串进行比较和匹配</p>
+<p>作用：用来检索、替换哪些符合某个规则的文本</p>
+<p>使用场景：</p>
+<ul>
+<li>验证数据		前端，电话/邮箱</li>
+<li>抓数据           页面抓取数据</li>
+<li>洗数据           洗掉冗余数据</li>
+</ul>
+<h2 id="11python里的正则表达式re模块"><a class="header" href="#11python里的正则表达式re模块">1.1Python里的正则表达式（re模块）</a></h2>
+<ol>
+<li><code>match(匹配规则，被匹配的字符串)</code>方法==从头==开始匹配，匹配成功返回match对象，匹配失败返回None（只匹配一次）</li>
+<li>从match对象获取字符串的方法为<code>.group()</code></li>
+<li>获取索引位置的元组<code>span()</code>、起始位置<code>start()</code>、结束位置<code>end()</code></li>
+</ol>
+<pre><code class="language-python">import re
+
+s = &quot;我喜欢吃火锅&quot;
+ret = re.match(&quot;我喜欢&quot;,s)
+print(ret)
+
+print(ret.group())
+print(ret.span())
+print(ret.start())
+print(ret.end())
+
+out：
+&lt;_sre.SRE_Match object; span=(0, 3), match='我喜欢'&gt;
+我喜欢
+(0, 3)
+0
+3
+</code></pre>
+<ol start="4">
+<li><code>search(匹配规则，被匹配的字符串)</code>从字符串中进行搜索，一旦匹配成功返回第一次匹配成功的位置，不成功返回None，使用方法和match一样（只匹配一次）</li>
+</ol>
+<pre><code class="language-python">import re
+
+s = &quot;我喜欢吃火锅我喜欢吃火锅&quot;
+
+ret1 = re.search(&quot;火锅&quot;,s)
+print(ret1)
+print(ret1.group())
+
+out：
+&lt;_sre.SRE_Match object; span=(4, 6), match='火锅'&gt;
+火锅
+</code></pre>
+<ol start="5">
+<li>
+<p><code>findall(匹配规则，被匹配的字符串)</code>，搜索全部，匹配全部，返回一个列表，包含所有符合规则的字符串。</p>
+</li>
+<li>
+<p><code>finditer(匹配规则，被匹配的字符串)</code>，搜索全部，匹配全部，返回一个迭代器，对象是match对象。</p>
+</li>
+</ol>
+<pre><code class="language-python">import re
+
+s = &quot;我喜欢吃火锅我喜欢吃火锅&quot;
+
+ret1 = re.findall(&quot;火锅&quot;, s)
+print(ret1)
+ret2 = re.finditer(&quot;火锅&quot;, s)
+for i in ret2:
+    print(i)
+
+
+out：
+['火锅', '火锅']
+&lt;_sre.SRE_Match object; span=(4, 6), match='火锅'&gt;
+&lt;_sre.SRE_Match object; span=(10, 12), match='火锅'&gt;
+</code></pre>
+<ol start="7">
+<li><code>split()</code>将字符串按照匹配规则进行切割，返回一个切割后的列表</li>
+</ol>
+<pre><code class="language-python">import re
+
+s = &quot;asdf jkl;     asdf  werq,asdf,   foo&quot;
+
+# 先匹配一个空格，后面可能有任意个空格
+ret = re.split(&quot;[\s,;]\s*&quot;, s)
+print(ret)
+
+out：
+['asdf', 'jkl', 'asdf', 'werq', 'asdf', 'foo']
+</code></pre>
+<ol start="8">
+<li><code>sbu(规则，替换的串，被匹配的字符串)</code>用来做高级替换</li>
+</ol>
+<pre><code class="language-python">import re
+
+s = &quot;我还要再活500年,20年&quot;
+
+ret = re.sub(&quot;\d+&quot;, &quot;1000&quot;, s)
+print(ret)
+ret = re.sub(&quot;\d+&quot;, &quot;2000&quot;, s)
+print(ret)
+
+out：
+我还要再活1000年,1000年
+我还要再活2000年,2000年
+</code></pre>
+<p><code>sub()</code>还有高阶用法，传入函数，对匹配到的Match对象进行操作，并返回一个字符串</p>
+<pre><code class="language-pytohn">import re
+
+s = &quot;我还要再活500年,20年&quot;
+
+
+def func(num):
+    # 匹配到的是一个Match对象，所以传进来是个Match对象，要使用group获取字符串
+    n = num.group()
+    return str(int(n) + 1)
+
+
+ret = re.sub(&quot;\d+&quot;, func, s)
+print(ret)
+ret = re.sub(&quot;\d+&quot;, func, s)
+print(ret)
+
+out：
+我还要再活501年,21年
+我还要再活501年,21年
+</code></pre>
+<h2 id="12正则表达式的语法"><a class="header" href="#12正则表达式的语法">1.2正则表达式的语法</a></h2>
+<h3 id="121单字符匹配"><a class="header" href="#121单字符匹配">1.2.1单字符匹配</a></h3>
+<table><thead><tr><th>方法</th><th>含义</th></tr></thead><tbody>
+<tr><td>.</td><td>匹配单字符（万能匹配，什么都可以匹配），但是不能匹配<code>\n</code></td></tr>
+<tr><td>\d</td><td>匹配所有的数字（0-9的单字符）</td></tr>
+<tr><td>\D</td><td>匹配所有的非数字（0-9的单字符）</td></tr>
+<tr><td>\w</td><td>匹配所有的单词字符（数字、字母和下划线），Python3中汉字也是单词字符</td></tr>
+<tr><td>\W</td><td>上述相反</td></tr>
+<tr><td>\s</td><td>匹配所有空白符</td></tr>
+<tr><td>\S</td><td>匹配所有非空白符</td></tr>
+<tr><td>[]</td><td>内部任意一个（^表示非）</td></tr>
+</tbody></table>
+<p><strong>案例：</strong></p>
+<pre><code class="language-python">ret = re.match(&quot;张.龙&quot;, &quot;张海龙&quot;)
+print(ret)
+ret = re.match(&quot;张.龙&quot;, &quot;张龙&quot;)
+print(ret)
+ret = re.match(&quot;张.龙&quot;, &quot;张\n龙&quot;)
+print(ret)
+
+out:
+&lt;_sre.SRE_Match object; span=(0, 3), match='张海龙'&gt;
+None
+None
+</code></pre>
+<pre><code class="language-python">ret = re.match(&quot;张.龙&quot;, &quot;张2龙&quot;)
+print(ret)
+ret = re.match(&quot;张\d龙&quot;, &quot;张2龙&quot;)
+print(ret)
+ret = re.match(&quot;张\d龙&quot;, &quot;张12龙&quot;)
+print(ret)
+ret = re.match(&quot;张\d龙&quot;, &quot;张海龙&quot;)
+print(ret)
+
+out:
+&lt;_sre.SRE_Match object; span=(0, 3), match='张2龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张2龙'&gt;
+None
+None
+</code></pre>
+<pre><code class="language-python">ret = re.match(&quot;张\D龙&quot;, &quot;张2龙&quot;)
+print(ret)
+ret = re.match(&quot;张\D龙&quot;, &quot;张s龙&quot;)
+print(ret)
+ret = re.match(&quot;张\D龙&quot;, &quot;张#龙&quot;)
+print(ret)
+ret = re.match(&quot;张\D龙&quot;, &quot;张海龙&quot;)
+print(ret)
+
+out:
+None
+&lt;_sre.SRE_Match object; span=(0, 3), match='张s龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张#龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张海龙'&gt;
+</code></pre>
+<pre><code class="language-python">ret = re.match(&quot;张\w龙&quot;, &quot;张海龙&quot;)
+print(ret)
+ret = re.match(&quot;张\w龙&quot;, &quot;张s龙&quot;)
+print(ret)
+ret = re.match(&quot;张\w龙&quot;, &quot;张#龙&quot;)
+print(ret)
+ret = re.match(&quot;张\w龙&quot;, &quot;张2龙&quot;)
+print(ret)
+
+out：
+&lt;_sre.SRE_Match object; span=(0, 3), match='张海龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张s龙'&gt;
+None
+&lt;_sre.SRE_Match object; span=(0, 3), match='张2龙'&gt;
+</code></pre>
+<pre><code class="language-python">ret = re.match(&quot;张\W龙&quot;, &quot;张海龙&quot;)
+print(ret)
+ret = re.match(&quot;张\W龙&quot;, &quot;张s龙&quot;)
+print(ret)
+ret = re.match(&quot;张\W龙&quot;, &quot;张#龙&quot;)
+print(ret)
+ret = re.match(&quot;张\W龙&quot;, &quot;张2龙&quot;)
+print(ret)
+
+out:
+None
+None
+&lt;_sre.SRE_Match object; span=(0, 3), match='张#龙'&gt;
+None
+</code></pre>
+<pre><code class="language-python">ret = re.match(&quot;张\s龙&quot;, &quot;张 龙&quot;)
+print(ret)
+ret = re.match(&quot;张\s龙&quot;, &quot;张\n龙&quot;)
+print(ret)
+ret = re.match(&quot;张\s龙&quot;, &quot;张\r龙&quot;)
+print(ret)
+ret = re.match(&quot;张\s龙&quot;, &quot;张\t龙&quot;)
+print(ret)
+ret = re.match(&quot;张\s龙&quot;, &quot;张\f龙&quot;)
+print(ret)
+ret = re.match(&quot;张\s龙&quot;, &quot;张海龙&quot;)
+print(ret)
+ret = re.match(&quot;张\s龙&quot;, &quot;张龙&quot;)
+print(ret)
+
+out：
+&lt;_sre.SRE_Match object; span=(0, 3), match='张 龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张\n龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张\r龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张\t龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张\x0c龙'&gt;
+None
+None
+</code></pre>
+<pre><code class="language-python">ret = re.match(&quot;张\S龙&quot;, &quot;张 龙&quot;)
+print(ret)
+ret = re.match(&quot;张\S龙&quot;, &quot;张\n龙&quot;)
+print(ret)
+ret = re.match(&quot;张\S龙&quot;, &quot;张\r龙&quot;)
+print(ret)
+ret = re.match(&quot;张\S龙&quot;, &quot;张\t龙&quot;)
+print(ret)
+ret = re.match(&quot;张\S龙&quot;, &quot;张\f龙&quot;)
+print(ret)
+ret = re.match(&quot;张\S龙&quot;, &quot;张海龙&quot;)
+print(ret)
+ret = re.match(&quot;张\S龙&quot;, &quot;张龙&quot;)
+print(ret)
+
+out：
+None
+None
+None
+None
+None
+&lt;_sre.SRE_Match object; span=(0, 3), match='张海龙'&gt;
+None
+</code></pre>
+<pre><code class="language-python">import re
+
+ret = re.match(&quot;张[\d\w\s#]龙&quot;, &quot;张#龙&quot;)
+print(ret)
+ret = re.match(&quot;张[a-zA-Z0-9]龙&quot;, &quot;张1龙&quot;)
+print(ret)
+# ^表示非
+ret = re.match(&quot;张[^a-zA-Z0-9]龙&quot;, &quot;张1龙&quot;)
+print(ret)
+ret = re.match(&quot;张[^a-zA-Z0-9]龙&quot;, &quot;张海龙&quot;)
+print(ret)
+ret = re.match(&quot;张[^a-zA-Z0-9]龙&quot;, &quot;张A龙&quot;)
+print(ret)
+
+out:
+&lt;_sre.SRE_Match object; span=(0, 3), match='张#龙'&gt;
+&lt;_sre.SRE_Match object; span=(0, 3), match='张1龙'&gt;
+None
+&lt;_sre.SRE_Match object; span=(0, 3), match='张海龙'&gt;
+None
+</code></pre>
+<h3 id="122多字符匹配"><a class="header" href="#122多字符匹配">1.2.2多字符匹配</a></h3>
+<table><thead><tr><th>方法</th><th>含义</th></tr></thead><tbody>
+<tr><td>*</td><td>匹配0或任意个前面的字符</td></tr>
+<tr><td>+</td><td>匹配1或任意个前面的字符</td></tr>
+<tr><td>？</td><td>匹配0或1个前面的字符</td></tr>
+<tr><td>{m}</td><td>匹配指定m个前面的字符<br />数量不足返回失败</td></tr>
+<tr><td>{n,m}</td><td>匹配范围[n-m]数量前面的字符<br />数量不足返回失败</td></tr>
+</tbody></table>
+<pre><code class="language-python">import re
+
+s = &quot;我的电话是12345678905.&quot;
+
+# 匹配成功，但是是空，因为*是匹配0或任意个，匹配到了0个
+ret = re.search(&quot;\d*&quot;, s)
+print(ret)
+
+# 匹配成功,因为+是匹配1或任意个
+ret = re.search(&quot;\d+&quot;, s)
+print(ret)
+
+ret = re.search(&quot;\d?&quot;, s)
+print(ret)
+
+s = &quot;0451-88888888&quot;
+ret = re.search(&quot;0\d+-\d{8}&quot;, s)
+print(ret)
+
+out：
+&lt;_sre.SRE_Match object; span=(0, 0), match=''&gt;
+&lt;_sre.SRE_Match object; span=(5, 16), match='12345678905'&gt;
+&lt;_sre.SRE_Match object; span=(0, 0), match=''&gt;
+&lt;_sre.SRE_Match object; span=(0, 13), match='0451-88888888'&gt;
+</code></pre>
+<h3 id="123边界匹配"><a class="header" href="#123边界匹配">1.2.3边界匹配</a></h3>
+<p>r开头引号的字符串表示正则表达式，不然有些会有转义效果</p>
+<table><thead><tr><th>方法</th><th>含义</th></tr></thead><tbody>
+<tr><td>^</td><td>必须以规则开头匹配（电话）</td></tr>
+<tr><td>$</td><td>必须以规则结尾匹配（邮箱）</td></tr>
+<tr><td>\b</td><td>位置两侧不可以都是单词字符</td></tr>
+<tr><td>\B</td><td>位置两侧必须都是单词字符</td></tr>
+<tr><td>\A</td><td>匹配字符串开始的位置</td></tr>
+<tr><td>\Z</td><td>匹配字符串结束的位置</td></tr>
+</tbody></table>
+<pre><code class="language-python">s = &quot;asd&quot;
+
+ret = re.search(r&quot;\ba\w+&quot;, s)
+print(ret)
+
+s = &quot;sasd&quot;
+ret = re.search(r&quot;\ba\w+&quot;, s)
+print(ret)
+
+out:
+&lt;_sre.SRE_Match object; span=(0, 3), match='asd'&gt;
+None
+</code></pre>
+<h3 id="124分组匹配"><a class="header" href="#124分组匹配">1.2.4分组匹配</a></h3>
+<p><code>|</code>符号匹配两边任意一边的正则表达式即可，</p>
+<p><code>pattern</code>参数写一个串</p>
+<p><strong>分组：</strong></p>
+<p>分组内部进行或匹配，外部相同。</p>
+<p><code>group(0)</code>是所有</p>
+<p>例子：</p>
+<pre><code class="language-python">import re
+
+s = &quot;我喜欢吃火锅，我喜欢吃小面，我喜欢吃拉面，我喜欢吃乌冬面，我喜欢吃烧鸡公，&quot;
+
+ret = re.search(&quot;我喜欢吃(火锅|小面)&quot;, s)
+print(ret)
+print(ret.group())
+print(ret.group(0))
+print(ret.group(1))
+
+ret = re.search(&quot;(我喜欢吃)(火锅|小面)&quot;, s)
+print(ret)
+print(ret.group())
+print(ret.group(0))
+print(ret.group(1))
+print(ret.group(2))
+
+
+out：
+&lt;_sre.SRE_Match object; span=(0, 6), match='我喜欢吃火锅'&gt;
+我喜欢吃火锅
+我喜欢吃火锅
+火锅
+&lt;_sre.SRE_Match object; span=(0, 6), match='我喜欢吃火锅'&gt;
+我喜欢吃火锅
+我喜欢吃火锅
+我喜欢吃
+火锅
+</code></pre>
+<p><strong>复用分组匹配的内容：</strong></p>
+<pre><code class="language-python">s = &quot;&lt;h1&gt;我是标题标签&lt;/h2&gt;&quot;
+
+ret = re.match(r&quot;&lt;\w+&gt;.*&lt;/\w+&gt;&quot;, s)
+print(ret)
+
+ret = re.match(r&quot;&lt;(\w+)&gt;.*&lt;/\1&gt;&quot;, s)
+print(ret)
+
+s = &quot;&lt;h1&gt;我是标题标签&lt;/h1&gt;&quot;
+ret = re.match(r&quot;&lt;(\w+)&gt;.*&lt;/\1&gt;&quot;, s)
+print(ret)
+
+s = &quot;&lt;body&gt;&lt;h1&gt;我是标题标签&lt;/h1&gt;&lt;/body&gt;&quot;
+ret = re.match(r&quot;&lt;(\w+)&gt;&lt;(\w+)&gt;.*&lt;/\2&gt;&lt;/\1&gt;&quot;, s)
+print(ret)
+
+out：
+&lt;_sre.SRE_Match object; span=(0, 15), match='&lt;h1&gt;我是标题标签&lt;/h2&gt;'&gt;
+None
+&lt;_sre.SRE_Match object; span=(0, 15), match='&lt;h1&gt;我是标题标签&lt;/h1&gt;'&gt;
+&lt;_sre.SRE_Match object; span=(0, 28), match='&lt;body&gt;&lt;h1&gt;我是标题标签&lt;/h1&gt;&lt;/body&gt;'&gt;
+</code></pre>
+<p><strong>分组命名：</strong></p>
+<p>定义：<code>(?P&lt;name&gt;正则)</code>，P是大写</p>
+<p>使用：<code>(?P=name)</code></p>
+<p>例子：</p>
+<pre><code class="language-python">s = &quot;&lt;body&gt;&lt;h1&gt;我是标题标签&lt;/h1&gt;&lt;/body&gt;&quot;
+ret = re.match(r&quot;&lt;(?P&lt;body&gt;\w+)&gt;&lt;(?P&lt;h1&gt;\w+)&gt;.*&lt;/(?P=h1)&gt;&lt;/(?P=body)&gt;&quot;, s)
+print(ret)
+
+out:
+&lt;_sre.SRE_Match object; span=(0, 28), match='&lt;body&gt;&lt;h1&gt;我是标题标签&lt;/h1&gt;&lt;/body&gt;'&gt;
+</code></pre>
+<h2 id="13一些其他参数flag"><a class="header" href="#13一些其他参数flag">1.3一些其他参数(Flag)</a></h2>
+<table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody>
+<tr><td>re.IGNORECASE（re.I）</td><td>忽略大小写</td></tr>
+<tr><td>re.MULTILINE（re.M）</td><td>可换行(<code>\n</code>自动进入下一行)</td></tr>
+<tr><td>re.ASCII（re.A）</td><td>使\w/\W/d/\D/\s/\S/\b/\B 只匹配ASCII字符，不匹配Unicode字符</td></tr>
+<tr><td>re.Unicode（re.U）</td><td>默认使用此标志位，\w/\W/d/\D/\s/\S/\b/\B 会匹配Unicode字符，如果指定了 re.A 标志，则 re.U失效</td></tr>
+<tr><td>re.DOTALL（re.S）</td><td>使得<code>.</code>会匹配换行符等其他字符</td></tr>
+<tr><td>re.VERBOSE（re.X）</td><td>允许整个正则表达式写成多行，忽略空白字符，并可以添加<code>#</code>开头的注释，这样更美观。</td></tr>
+</tbody></table>
+<h2 id="14贪婪和非贪婪"><a class="header" href="#14贪婪和非贪婪">1.4贪婪和非贪婪</a></h2>
+<p>正则表达式默认情况下会尽可能多的匹配，</p>
+<p>如：</p>
+<p>asdf.png///123.png</p>
+<p>如果写<code>\w+.png</code>不会匹配到asdf.png</p>
+<p>而是会匹配整个串</p>
+<p>如果需要修改为非贪婪，就要在一些情况后面加上<code>?</code>操作符</p>
+<p>包括：<code>+,?,*,[n-m]</code></p>
+<p>在使用的时候在这些符号后面加上<code>?</code>即可更改匹配模式为非贪婪</p>
+<h1 id="2可迭代器"><a class="header" href="#2可迭代器">2.可迭代器</a></h1>
+<h2 id="21可迭代对象"><a class="header" href="#21可迭代对象">2.1可迭代对象</a></h2>
+<p>使用<code>iter()</code>来获取可迭代对象（是可迭代对象就返回对象，如果不是就报错）</p>
+<p>可迭代对象就是一个可以通过iter方法获取到迭代器（iterator）的对象。</p>
+<p>可迭代对象：</p>
+<ul>
+<li>对象实现了能返回迭代器的<code>__iter__()</code>方法</li>
+<li>对象实现了<code>__getitem__(index)</code>方法，而且index参数是从0开始的整数（索引）</li>
+</ul>
+<p>Python中内置的序列类型，如<code>list、tuple、str、bytes、dict、set、collections.deque</code>等都可以迭代，因为都实现了<code>__getitem__(index)</code>方法。</p>
+<blockquote>
+<p>注意：其实标准的序列还都实现了 <code>__iter__()</code> 方法</p>
+</blockquote>
+<h3 id="211判断是否是一个可迭代对象"><a class="header" href="#211判断是否是一个可迭代对象">2.1.1判断是否是一个可迭代对象</a></h3>
+<pre><code class="language-python">from collections import abc
+
+l = [1, 2, 3, 4]
+
+ret = isinstance(l,abc.Iterable)
+
+print(ret)
+
+out：
+True
+</code></pre>
+<p>最准确的方法还是调用<code>iter(l)</code>，<code>iter</code>会考虑历史遗留的<code> __getitem__(index)</code>方法，abc.Iterable只会考虑<code>__iter()__</code>方法。</p>
+<h3 id="212构建可迭代对象"><a class="header" href="#212构建可迭代对象">2.1.2构建可迭代对象</a></h3>
+<ul>
+<li><code>__iter__()</code> </li>
+<li><code>__getitem__(index)</code></li>
+</ul>
+<p>只要实现其中一个就是可迭代对象</p>
+<p>如果实现了<code>__iter__()</code> 方法，但是该方法没有返回迭代器的时候</p>
+<p>调用<code>abc.Iterable</code>会返回<code>True</code>的错误判断。</p>
+<p><code>iter()</code>会抛出异常</p>
+<h3 id="213iter函数"><a class="header" href="#213iter函数">2.1.3<code>iter()</code>函数</a></h3>
+<p>Python迭代器要求<code>iter()</code>必须返回特殊的迭代器对象。</p>
+<p>迭代器对象必须实现<code>__next__()</code>方法，并使用<code>StopIteration</code>异常来通知迭代结束</p>
+<p><code>iter()</code>函数有两种使用方法：</p>
+<ul>
+<li><code>iter(iterable) -&gt; iterator</code>：传入可迭代对象，返回迭代器</li>
+<li><code>iter(callable,sentinel) -&gt; iterator</code>：传入两个参数，第一个必须是可调用的对象（没有参数），用于不断调用，产出各个值，第二个值是==哨符==，是一个标记值，当第一个参数的调用返回了这个值的时候，触发迭代器抛出<code>StopIteration</code>异常，==不产出哨符==</li>
+</ul>
+<p><strong>例子：投骰子</strong></p>
+<pre><code class="language-python">import random
+
+
+def d6():
+    return random.randint(1,6)
+
+
+d6_iter = iter(d6 , 1)
+print(d6_iter)
+
+for it in d6_iter:
+    print(it)
+
+out：
+&lt;callable_iterator object at 0x000002AC2B708A58&gt;
+4
+6
+</code></pre>
+<p><strong>例子：逐行读取文件，直到遇到空行或者达到文件末尾为止</strong></p>
+<pre><code class="language-python">with open('mydata.txt') as fp:
+    for line in iter(fp.readline, '\n'):
+        # fp.readline每次返回一行
+        print(line)
+</code></pre>
+<h2 id="22迭代器"><a class="header" href="#22迭代器">2.2迭代器</a></h2>
+<p>内存中放不下数据集的时候，要使用一种惰性的获取数据的方式，即按需要一次获取一个数据对象。</p>
+<p>这就是迭代器模式（Iterator pattern）</p>
+<p>迭代器就是实现了无参数<code>__next__()</code>方法（无参数），返回序列中的下一个元素。</p>
+<p>如果没有元素了，就抛出<code>StopIteration</code>异常。</p>
+<p>即迭代器可以被<code>next()</code>函数调用，并不断返回下一个元素的值。</p>
+<p>在 Python 语言内部， 迭代器 用于支持：</p>
+<ul>
+<li>for 循环</li>
+<li>构建和扩展集合类型</li>
+<li>逐行遍历文本文件</li>
+<li>列表推导、字典推导和集合推导</li>
+<li>元组拆包</li>
+<li>调用函数时，使用*拆包实参</li>
+</ul>
+<h3 id="221判断对象是否为迭代器"><a class="header" href="#221判断对象是否为迭代器">2.2.1判断对象是否为迭代器</a></h3>
+<p>最好是使用<code>isinstance(x,abc.Iterator)</code></p>
+<pre><code class="language-python">from collections import abc
+
+l = [1,2,3,4]
+it = iter(l)
+
+print(isinstance(l, abc.Iterable))
+print(isinstance(l, abc.Iterator))
+print(iter(l))
+print(isinstance(it, abc.Iterable))
+print(isinstance(it, abc.Iterator))
+print(iter(it))
+
+out:
+True
+False
+&lt;list_iterator object at 0x000001E5516AA2E8&gt;
+True
+True
+&lt;list_iterator object at 0x000001E5515FB278&gt;
+</code></pre>
+<blockquote>
+<p><strong>Python中内置的序列类型，如list、tuple、str、bytes、dict、set、collections.deque等都是 可迭代的对象，但不是迭代器； 生成器一定是迭代器</strong></p>
+</blockquote>
+<h3 id="222__next__和__iter__"><a class="header" href="#222__next__和__iter__">2.2.2<code>__next__()</code>和<code>__iter__()</code></a></h3>
+<pre><code class="language-python">class A:
+    def __init__(self, data):
+        self.data = data
+        self.index = 0
+
+    def __iter__(self):
+        # 返回一个迭代器
+        return self
+
+    def __next__(self):
+        # 返回下一个元素
+        # 有一个索引在记录每次返回的位置
+        try:
+            ret = self.data[self.index]
+            self.index += 1
+        except IndexError:
+            raise StopIteration()
+        return ret
+</code></pre>
+<p>iter方法会调用<code>__iter__</code>方法返回当前迭代器对象</p>
+<p>next方法会调用<code>__next__</code>方法返回结果，同时索引增加（index必须开始是0的整数）</p>
+<h3 id="223next函数获取迭代器中下一个元素"><a class="header" href="#223next函数获取迭代器中下一个元素">2.2.3<code>next()</code>函数获取迭代器中下一个元素</a></h3>
+<p>除了可以用for循环处理迭代器中的元素外，可以直接使用<code>next()</code>方法</p>
+<blockquote>
+<p><strong>如果是最后一个，则for不会报错，<code>next()</code>方法报错，原因是for循环是一个上下文管理器，会自动捕获异常，而next()不会。其他迭代上下文也是如此。（列表推导、元组拆包等）</strong></p>
+</blockquote>
+<p>或者为<code>next()</code>函数指定第二个参数（默认值），执行到末尾后，返回默认值，不会抛出异常</p>
+<pre><code class="language-python">with open('/etc/passwd') as fd:
+    while True:
+        line = next(fd, None)
+        if line is None:
+            break
+        print(line, end='')
+</code></pre>
+<h3 id="224可迭代的对象与迭代器的对比"><a class="header" href="#224可迭代的对象与迭代器的对比">2.2.4可迭代的对象与迭代器的对比</a></h3>
+<p>Python从可迭代对象中获取迭代器。</p>
+<p>for会先调用<code>iter()</code>方法将字符串转换成迭代器。然后进行迭代。</p>
+<p>如果不使用for循环，则使用while来模拟：</p>
+<pre><code class="language-python">it = iter(&quot;123&quot;)
+
+while True:
+    try:
+        print(next(it))
+    except StopIteration:
+        del it
+        break
+</code></pre>
+<blockquote>
+<p><strong>总结：</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>迭代器要实现<code>__next__()</code>方法，返回迭代器中的下一个元素</p>
+</li>
+<li>
+<p>迭代器还要实现<code>__iter__()</code>方法，返回迭代器自身。==迭代器可以迭代，迭代器都是可迭代对象==</p>
+</li>
+<li>
+<p>可迭代对象一定要实现<code>__iter__()</code>方法，返回一个迭代器，==但是不能返回自身！==</p>
+<p>也不能实现<code>__next__()</code>方法</p>
+</li>
+</ul>
+<h1 id="练习题"><a class="header" href="#练习题">练习题：</a></h1>
+<h2 id="1截取"><a class="header" href="#1截取">1.截取</a></h2>
+<pre><code class="language-python">import re
+
+s = &quot;&quot;&quot;&lt;div class=&quot;WB_text W_f14&quot; node-type=&quot;feed_list_content&quot; nick-name=&quot;林俊杰&quot;&gt;飛機上偶遇的 J（JJ）F（Fish）J （Jimmy+Jolin）組合！&lt;br&gt;&lt;a
+        target=&quot;_blank&quot; render=&quot;ext&quot; extra-data=&quot;type=atname&quot;
+        href=&quot;//weibo.com/n/%E6%A2%81%E9%9D%99%E8%8C%B9?from=feed&amp;loc=at&quot; usercard=&quot;name=梁静茹&quot;&gt;@梁静茹&lt;/a&gt; &lt;a
+        target=&quot;_blank&quot; render=&quot;ext&quot; extra-data=&quot;type=atname&quot;
+        href=&quot;//weibo.com/n/%E8%94%A1%E4%BE%9D%E6%9E%97?from=feed&amp;loc=at&quot; usercard=&quot;name=蔡依林&quot;&gt;@蔡依林&lt;/a&gt; &lt;a
+        target=&quot;_blank&quot; render=&quot;ext&quot; extra-data=&quot;type=atname&quot;
+        href=&quot;//weibo.com/n/%E5%A4%A2%E6%83%B3%E5%AE%B6%E6%9E%97%E5%BF%97%E7%A9%8E?from=feed&amp;loc=at&quot;
+        usercard=&quot;name=夢想家林志穎&quot;&gt;@夢想家林志穎&lt;/a&gt;&lt;br&gt; 祝大家2018新年快樂！
+&lt;/div&gt;
+&quot;&quot;&quot;
+
+ret = re.sub(&quot;&lt;br&gt;.*&lt;br&gt;&quot;, &quot;  &quot;, s, flags=re.S)
+ret = re.findall(r&quot;(?&lt;=&gt;)(.*?)&lt;&quot;, ret, flags=re.S)
+print(ret)
+
+out:
+['飛機上偶遇的 J（JJ）F（Fish）J （Jimmy+Jolin）組合！   祝大家2018新年快樂！\n']
+</code></pre>
+<h2 id="2邮箱验证"><a class="header" href="#2邮箱验证">2.邮箱验证</a></h2>
+<p>5-20位单词字符</p>
+<p>@</p>
+<p>域名</p>
+<p>.com</p>
+<pre><code class="language-python">import re
+
+s = &quot;185699189@qq.com&quot;
+
+ret = re.match(r&quot;^(\w{5,20})@(\w+.com)$&quot;, s)
+print(ret.group(1))
+print(ret.group(2))
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../Python/Python高阶-1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../Python/Python高阶-3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../Python/Python高阶-1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../Python/Python高阶-3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
