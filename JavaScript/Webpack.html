@@ -1,0 +1,606 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Webpack - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li><li class="chapter-item expanded "><a href="../JavaScript/异步.html"><strong aria-hidden="true">1.4.</strong> 异步</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 工程化</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/Webpack.html" class="active"><strong aria-hidden="true">4.1.</strong> Webpack</a></li><li class="chapter-item expanded "><a href="../JavaScript/webpack-dev-server.html"><strong aria-hidden="true">4.2.</strong> webpack-dev-server</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">5.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">5.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">6.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">6.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">7.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">7.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">8.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">9.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">9.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">9.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">10.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 网络基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/加密和HTTPS.html"><strong aria-hidden="true">11.1.</strong> 加密和 HTTPS</a></li><li class="chapter-item expanded "><a href="../Network/TCP_IP三次握手和四次挥手.html"><strong aria-hidden="true">11.2.</strong> TCP/IP 三次握手和四次挥手</a></li><li class="chapter-item expanded "><a href="../Network/HTTP缓存.html"><strong aria-hidden="true">11.3.</strong> HTTP 缓存</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">12.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/vim编辑器.html"><strong aria-hidden="true">13.1.</strong> vim 编辑器</a></li><li class="chapter-item expanded "><a href="../Linux/初始命令.html"><strong aria-hidden="true">13.2.</strong> 初始命令</a></li><li class="chapter-item expanded "><a href="../Linux/文件内容操作命令.html"><strong aria-hidden="true">13.3.</strong> 文件内容操作命令</a></li><li class="chapter-item expanded "><a href="../Linux/网络命令等.html"><strong aria-hidden="true">13.4.</strong> 网络命令等</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">14.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">14.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">14.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">15.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">15.2.</strong> Gitlab-ce 备份和恢复</a></li><li class="chapter-item expanded "><a href="../Git/保存本地commit记录的同时合并提交到origin.html"><strong aria-hidden="true">15.3.</strong> 保存本地 commit 记录的同时合并提交到 origin</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">16.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">16.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">16.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">16.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">16.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">16.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">16.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">16.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">16.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">16.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">16.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html"><strong aria-hidden="true">17.1.</strong> 单点登录</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Python</li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> 乱七八糟</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Flask入门.html"><strong aria-hidden="true">18.1.</strong> Flask 入门</a></li><li class="chapter-item expanded "><a href="../Python/HTTPserver.html"><strong aria-hidden="true">18.2.</strong> HTTPserver</a></li><li class="chapter-item expanded "><a href="../Python/Python数据结构.html"><strong aria-hidden="true">18.3.</strong> Python 数据结构</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-1.html"><strong aria-hidden="true">18.4.</strong> Python 高阶-1</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-2.html"><strong aria-hidden="true">18.5.</strong> Python 高阶-2</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-3.html"><strong aria-hidden="true">18.6.</strong> Python 高阶-3</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-4.html"><strong aria-hidden="true">18.7.</strong> Python 高阶-4</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-5.html"><strong aria-hidden="true">18.8.</strong> Python 高阶-5</a></li><li class="chapter-item expanded "><a href="../Python/爬坑1-10.html"><strong aria-hidden="true">18.9.</strong> 爬坑 1-10</a></li><li class="chapter-item expanded "><a href="../Python/爬坑11-20.html"><strong aria-hidden="true">18.10.</strong> 爬坑 11-20</a></li><li class="chapter-item expanded "><a href="../Python/爬坑21-30.html"><strong aria-hidden="true">18.11.</strong> 爬坑 21-30</a></li><li class="chapter-item expanded "><a href="../Python/爬坑31-40.html"><strong aria-hidden="true">18.12.</strong> 爬坑 31-40</a></li><li class="chapter-item expanded "><a href="../Python/爬坑41-50.html"><strong aria-hidden="true">18.13.</strong> 爬坑 41-50</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">算法</li><li class="chapter-item expanded "><div><strong aria-hidden="true">19.</strong> LeetCode</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Algorithm/各种排序算法的比较.html"><strong aria-hidden="true">19.1.</strong> 各种排序算法的比较</a></li><li class="chapter-item expanded "><a href="../Algorithm/斐波那契进阶.html"><strong aria-hidden="true">19.2.</strong> 斐波那契进阶</a></li><li class="chapter-item expanded "><a href="../Algorithm/1-两数之和.html"><strong aria-hidden="true">19.3.</strong> 1-两数之和</a></li><li class="chapter-item expanded "><a href="../Algorithm/2-两数相加.html"><strong aria-hidden="true">19.4.</strong> 2-两数相加</a></li><li class="chapter-item expanded "><a href="../Algorithm/3-无重复字符的最长子串.html"><strong aria-hidden="true">19.5.</strong> 3-无重复字符的最长子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/4-寻找两个有序数组的中位数.html"><strong aria-hidden="true">19.6.</strong> 4-寻找两个有序数组的中位数</a></li><li class="chapter-item expanded "><a href="../Algorithm/5-最长回文子串.html"><strong aria-hidden="true">19.7.</strong> 5-最长回文子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/6-Z字形变换.html"><strong aria-hidden="true">19.8.</strong> 6-Z 字形变换</a></li><li class="chapter-item expanded "><a href="../Algorithm/7-整数翻转.html"><strong aria-hidden="true">19.9.</strong> 7-整数翻转</a></li><li class="chapter-item expanded "><a href="../Algorithm/92-反转链表②.html"><strong aria-hidden="true">19.10.</strong> 92-反转链表 ②</a></li><li class="chapter-item expanded "><a href="../Algorithm/206-反转链表.html"><strong aria-hidden="true">19.11.</strong> 206-反转链表</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="模块支持方案"><a class="header" href="#模块支持方案">模块支持方案</a></h1>
+<p>webpack 支持 CommonJS（配置文件是 Node 环境下运行的），AMD，ES6 Module 规范。</p>
+<h1 id="核心概念"><a class="header" href="#核心概念">核心概念</a></h1>
+<p>从 entry 进入项目，经过 loader、plugin 打包，之后输出 output</p>
+<h2 id="entryoutput"><a class="header" href="#entryoutput">entry、output</a></h2>
+<p><code>entry</code>可以是单个字符串，也可以是一个字符串数组（多入口），一般写成对象格式。 <code>key</code>表示名字，<code>value</code>表示入口文件。
+详细可以参考<a href="https://webpack.docschina.org/configuration/entry-context/#entry">官方文档</a>。</p>
+<pre><code class="language-js">module.exports = {
+  // entry: 'xxx',
+  // entry: ['a', 'b'],
+  entry: {
+    app: &quot;./app.js&quot;,
+    app2: &quot;./app2.js&quot;,
+  },
+};
+</code></pre>
+<p><code>output</code>就是输出的结果文件。<a href="https://webpack.docschina.org/configuration/output/">官方文档</a>。</p>
+<pre><code class="language-js">const path = require(&quot;path&quot;);
+
+module.exports = {
+  entry: {
+    app: &quot;./app.js&quot;,
+  },
+  output: {
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name].[hash:6].[id].[chunkhash].bundle.js&quot;, // name对应上面enrty的key
+  },
+};
+</code></pre>
+<h2 id="loader"><a class="header" href="#loader">loader</a></h2>
+<p>是<code>webpack</code>的编译方法，<code>webpack</code>自身只能处理<code>JavaScript</code>，所以需要依赖<code>loader</code>来处理别的类型的资源文件。
+<code>webpack</code>只能负责打包，相关的编译工作也需要依赖<code>loader</code>处理。 <code>loader</code>本质上只是一个方法，使用时基本需要额外安装。</p>
+<p>使用时，在<code>rules</code>数组中使用，<code>loader</code>的执行顺序符合从右往左（从下到上、从数组的最后执行到第一个，<code>compose</code>）</p>
+<pre><code class="language-js">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/, // 用正则匹配什么类型的文件
+        use: [
+          { loader: &quot;style-loader&quot; }, // 用什么loader处理
+          {
+            loader: &quot;css-loader&quot;,
+            options: {
+              // loader的配置项
+              modules: true,
+            },
+          },
+          { loader: &quot;sass-loader&quot; },
+        ],
+      },
+    ],
+  },
+};
+</code></pre>
+<h3 id="常见的-loader"><a class="header" href="#常见的-loader">常见的 loader</a></h3>
+<ul>
+<li><code>css-loader</code>，<code>style-loader</code>等处理<code>css</code>的<code>loader</code></li>
+<li><code>url-loader</code>，<code>image-loader</code>等图片文字文件等资源处理的<code>loader</code></li>
+<li><code>less-loader</code>，<code>sass-loader</code>，<code>babel-loader</code>等编译<code>loader</code></li>
+<li><code>vue-loader</code>等语法糖<code>loader</code></li>
+</ul>
+<h2 id="plugin"><a class="header" href="#plugin">plugin</a></h2>
+<p><code>plugin</code>是<code>webpack</code>的额外扩展：</p>
+<ul>
+<li>一些插件式的额外功能由<code>plugin</code>定义，帮助<code>webpack</code>优化代码，提供功能。</li>
+<li><code>plugin</code>也有一些是<code>webpack</code>自带的，也有需要额外安装的。</li>
+</ul>
+<pre><code class="language-js">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+const webpack = require(&quot;webpack&quot;); // 访问内置的插件
+const path = require(&quot;path&quot;);
+
+module.exports = {
+  entry: &quot;./path/to/my/entry/file.js&quot;,
+  output: {
+    filename: &quot;my-first-webpack.bundle.js&quot;,
+    path: path.resolve(__dirname, &quot;dist&quot;),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: &quot;babel-loader&quot;,
+      },
+    ],
+  },
+  plugins: [
+    new webpack.ProgressPlugin(),
+    new HtmlWebpackPlugin({ template: &quot;./src/index.html&quot; }),
+  ],
+};
+</code></pre>
+<h3 id="常见的-plugin"><a class="header" href="#常见的-plugin">常见的 plugin</a></h3>
+<p><code>commonsChunkPlugin</code>，<code>uglifyjsWebpackPlugin</code>，<code>PurifyCss</code>等优化文件体积的插件
+<code>HtmlWebpackPlugin</code>，<code>HotModuleReplacementPlugin</code>等</p>
+<h2 id="编译-es6"><a class="header" href="#编译-es6">编译 ES6</a></h2>
+<p>需要安装的 <code>loader</code></p>
+<pre><code class="language-js">npm install babel-loader @babel/core --save-dev
+</code></pre>
+<h3 id="babel-preset"><a class="header" href="#babel-preset">Babel-preset</a></h3>
+<p><code>presets</code> 是存储 <code>JavaScript</code> 不同标准的插件，通过正确使用 <code>presets</code>，来告诉 <code>babel</code> 按照哪个规范编译。 常见规范：</p>
+<ul>
+<li>es2015</li>
+<li>es2016</li>
+<li>es2017</li>
+<li>env（通常采用，包括上面的三个和浏览器规范）</li>
+<li>babel-preset-stage</li>
+</ul>
+<pre><code class="language-js">npm install @babel/preset-env --save-dev
+</code></pre>
+<h3 id="编译-es6-的方法"><a class="header" href="#编译-es6-的方法">编译 ES6 的方法</a></h3>
+<p><code>babel-polyfill</code> 在打包代码里注入一个全局对象里，对象里定义了 <code>ES6</code> 所有的方法的 <code>ES5</code> 实现。适用于项目开发。
+可以在入口文件中直接<code>import 'babel-polifill'</code> 也可以在 <code>entry</code> 中新增 <code>babel-polyfill</code></p>
+<p><code>babel-plugin-transform-runtime</code> 生成一个局部对象，只会生成使用过的方法的实现。一般适用于框架开发。严格控制大小。</p>
+<pre><code class="language-js">npm install babel-polyfill --save-dev
+npm install @babel/plugin-transform-runtime @babel/runtime --save
+</code></pre>
+<p>webpack 配置</p>
+<pre><code class="language-js">module.exports = {
+  entry: {
+    app: &quot;./app.js&quot;,
+  },
+  output: {
+    filename: &quot;[name].[hash:8].js&quot;,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: &quot;babel-loader&quot;,
+          options: {
+            presets: [
+              [
+                &quot;@babel/preset-env&quot;,
+                {
+                  targets: {
+                    browsers: [&quot;&gt;1%&quot;],
+                  },
+                },
+              ],
+            ],
+          },
+        },
+      },
+    ],
+  },
+};
+</code></pre>
+<h2 id="编译-typescript"><a class="header" href="#编译-typescript">编译 Typescript</a></h2>
+<ul>
+<li>安装 Typescript 和 ts-loader</li>
+<li>写入 webpack.config.js</li>
+<li>配置 tsconfig.json</li>
+</ul>
+<h2 id="编译-css"><a class="header" href="#编译-css">编译 css</a></h2>
+<ul>
+<li><code>css-loader</code>，让 <code>css</code> 可以被 <code>js</code> 正确的引入</li>
+<li><code>style-loader</code>，让 <code>css</code> 被引入后可以正确的以一个 <code>style</code> 标签插入页面</li>
+<li>必须先过 <code>css-loader</code>，再过 <code>style-loader</code></li>
+</ul>
+<h3 id="style-loader-的一些配置项"><a class="header" href="#style-loader-的一些配置项">style-loader 的一些配置项</a></h3>
+<ul>
+<li><code>insertAt</code> : <code>style</code> 标签插入在哪一块区域</li>
+<li><code>insertInto</code> : 插入指定的 <code>dom</code></li>
+<li><code>singleton</code> : 是否合并为一个 <code>style</code> 标签</li>
+<li><code>transform</code> : 在浏览器环境下，插入 <code>style</code> 到页面前，用 <code>js</code> 对 <code>css</code> 进行操作</li>
+</ul>
+<h3 id="css-loader-的一些核心配置"><a class="header" href="#css-loader-的一些核心配置">css-loader 的一些核心配置</a></h3>
+<ul>
+<li><code>minimize</code>: 是否压缩（<code>webpack4</code> 以上不支持这个，推荐使用 <code>uglifyjsWebpackPlugin</code>)</li>
+<li><code>module</code>: 是否进行 <code>css</code> 模块化</li>
+<li><code>alias</code>: <code>css</code> 中的全局别名（<code>webpack4</code> 以上不支持这个）</li>
+</ul>
+<h3 id="lesssass"><a class="header" href="#lesssass">less，sass</a></h3>
+<p>是 <code>css</code> 的预处理语言</p>
+<p>less: less，less-loader sass： sass-loader， node-sass</p>
+<pre><code class="language-js">{
+  rules: [
+      {
+        test: /\.less$/,
+        use: [{
+          loader: &quot;style-loader&quot;,
+          options: {
+            // insertInto: &quot;xxx&quot;,
+            singleton: true,
+            transform: &quot;./transform.js&quot;
+          }
+        },
+        {
+          loader: &quot;css-loader&quot;,
+          options: {
+            modules: {
+              localIdentName: &quot;[path][name]_[local]_[hash:4]&quot;
+            }
+          }
+        },
+        {
+          loader: &quot;less-loader&quot;
+        }]
+      },
+    ],
+}
+</code></pre>
+<h3 id="提取-css-代码"><a class="header" href="#提取-css-代码">提取 css 代码</a></h3>
+<p><code>extract-text-webpack-plugin</code>把 <code>css</code> 提取为单独的文件</p>
+<pre><code class="language-js">{
+  rules: [
+      {
+        test: /\.less$/,
+        use: extractTextCss.extract({
+          fallback: {
+            loader: &quot;style-loader&quot;,
+            options: {
+              // insertInto: &quot;xxx&quot;,
+              singleton: true,
+              transform: &quot;./transform.js&quot;
+            }
+          },
+          use: [
+            {
+              loader: &quot;css-loader&quot;,
+              options: {
+                modules: {
+                  localIdentName: &quot;[path][name]_[local]_[hash:4]&quot;
+                }
+              }
+            },
+            {
+              loader: &quot;less-loader&quot;
+            }
+          ]
+        })
+      },
+    ],
+
+    //  ...
+    plugins: [
+      new extractTextCss({filename: '[name].min.css'})
+    ]
+}
+</code></pre>
+<h3 id="css-兼容性处理"><a class="header" href="#css-兼容性处理">css 兼容性处理</a></h3>
+<p><code>post-css</code>，再配合 <code>browserlist</code></p>
+<h2 id="html-的处理和打包"><a class="header" href="#html-的处理和打包">HTML 的处理和打包</a></h2>
+<p><code>html-webpack-plugin</code></p>
+<ul>
+<li><code>filename</code> 指定打包生成的 <code>html</code> 的名字</li>
+<li><code>template</code> 指定一个 <code>html</code> 文件为模板</li>
+<li><code>minify</code> 压缩 <code>html</code></li>
+<li><code>inject</code> 是否把 <code>js</code>，<code>css</code> 文件插入到 <code>html</code>，插入到哪里</li>
+<li><code>chunks</code> 多入口时，指定引入 <code>chunks</code></li>
+</ul>
+<pre><code class="language-js">new htmlWebpackPlugin({
+  filename: &quot;index.html&quot;,
+  template: &quot;./index.html&quot;,
+});
+</code></pre>
+<h2 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h2>
+<p><code>env</code> 参数可以根据不同的指定，产生不同的配置文件，用来适应生产、测试、开发环境的不同需求</p>
+<h2 id="图片处理"><a class="header" href="#图片处理">图片处理</a></h2>
+<p><code>url-loader</code>，<code>file-loader</code>，<code>img-loader</code></p>
+<pre><code class="language-js">{
+  test: /\.(png|jpg|jpeg|gif)$/,
+  use: {
+    loader: 'file-loader',
+    options: {
+      name:'[name].[hash].[ext]',
+      outputPath: '',
+      publicPath: ''
+    }
+  }
+}
+</code></pre>
+<p><code>url-loader</code> 可以多一些参数配置</p>
+<pre><code class="language-js">{
+  test: /\.(png|jpg|jpeg|gif)$/,
+  use: {
+    loader: 'url-loader',
+    options: {
+      name:'[name].[hash].[ext]',
+      outputPath: '',
+      publicPath: '',
+      limit: 5000 //可以将小的资源文件进行base64转码
+    }
+  }
+}
+</code></pre>
+<p><code>img-loader</code> 可以进行图片压缩</p>
+<pre><code class="language-js">{
+  test: /\.(png|jpg|jpeg|gif)$/,
+  use: [{
+    loader: 'url-loader',
+    options: {
+      name:'[name].[hash].[ext]',
+      outputPath: '',
+      publicPath: '',
+      limit: 5000 //可以将小的资源文件进行base64转码
+    }
+  }, {
+    loader: 'img-loader',
+    options: {
+      plugins: [
+        require('imagemin-pngquant')({
+          speed: 5 // 1-11，越大，压缩率越小
+        }),
+        require('imagemin-mozjpeg')({
+          quality: 80 // 1-100，质量，压缩率
+        }),
+        require('imagemin-gifsicle')({
+          optimizationLevel: 1, // 1-3
+        }),
+      ]
+    }
+  }]
+}
+</code></pre>
+<h2 id="代码分割"><a class="header" href="#代码分割">代码分割</a></h2>
+<p>多入口要配置多个 <code>HTMLWebpackPlugin</code>，<code>filename</code> 和 <code>chunks</code> 也要指定好
+多页面应用时需要提取公共依赖，打包成一个文件。（主业务代码+公共依赖+第三方包+<code>webpack</code> 运行代码）
+单页面应用主要是把<code>需要异步加载</code>改成<code>异步加载</code>，把业务代码和第三方代码拆分，保持纯净。（主业务代码+异步模块+第三方包+<code>webpack</code> 运行代码）</p>
+<ul>
+<li>webpack3， commonChunksPlugin</li>
+<li>webpack4， SplitChunksPlugin</li>
+</ul>
+<pre><code class="language-js">{
+  optimization: {
+    splitChunks: {
+      // initial, all ,async
+      chunks: &quot;initial&quot;,
+      minSize: 0,
+      // 自定义提取
+      cacheGroups: {
+        vendor: {
+          test: /([\\/]node_modules[\\/])/,
+          name: 'vendor',
+          chunks: 'all'
+        }
+      }
+    },
+    // webpack运行时代码
+    runtimeChunk: true,
+  }
+}
+</code></pre>
+<p>异步模块加载，命名</p>
+<pre><code class="language-js">import(/* webpackChunkName:&quot;mA&quot; */ &quot;./moduleA.js&quot;);
+
+require.ensure([], function () {
+  require(&quot;./moduleA.js&quot;);
+});
+</code></pre>
+<p>清除之前的 <code>dist</code>， <code>clean-webpack-plugin</code></p>
+<pre><code class="language-js">{
+  new CleanWebpackPlugin(),
+}
+</code></pre>
+<h2 id="体积优化"><a class="header" href="#体积优化">体积优化</a></h2>
+<ul>
+<li>webpack3 optimize.UglifyJsPlugin()</li>
+<li>webpack4 optimization.minimize</li>
+</ul>
+<h2 id="打包加速"><a class="header" href="#打包加速">打包加速</a></h2>
+<p>项目本身</p>
+<ul>
+<li>减少依赖嵌套深度</li>
+<li>使用尽可能少的处理</li>
+</ul>
+<p>webpack 层面</p>
+<ul>
+<li>dll 处理</li>
+<li>通过 include 减少 loader 范围</li>
+<li>HappyPack</li>
+<li>Uglify 优化</li>
+<li>减少 resolve，sourcemap，cache-loader，用新版本的 node 和 webpack</li>
+</ul>
+<pre><code class="language-js">// webpack.config.js
+{
+  new webpack.DllReferencePlugin({
+    manifest.require('./src/dll/jquery.json')
+  })
+}
+
+// webpack.dll.js
+const webpack = require(&quot;webpack&quot;);
+module.exports = {
+  entry: {
+    jquery: [&quot;jquery&quot;],
+    loadsh: [&quot;loadsh&quot;],
+  },
+  output: {
+    path: dirname + &quot;/src/dll&quot;,
+    filename: &quot;./[name].js&quot;,
+    //引用名
+    library: &quot;[name]&quot;,
+  },
+  plugins: [
+    new webpack.DllPlugin({
+      path: __dirname + &quot;/src/dll/[name].json&quot;,
+      name: &quot;[name]&quot;,
+    }),
+  ],
+};
+</code></pre>
+<p>先运行 <code>webpack --config webpack.dll.js</code>，生成对应文件，之后就可以加速了。</p>
+<h2 id="长缓存优化"><a class="header" href="#长缓存优化">长缓存优化</a></h2>
+<ul>
+<li><code>hash</code> -&gt; <code>chunkhash</code></li>
+<li><code>NamedChunksPlugin</code> 和 <code>NamedModulesPlugin</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../JavaScript/各种各样的模块化.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../JavaScript/webpack-dev-server.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../JavaScript/各种各样的模块化.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../JavaScript/webpack-dev-server.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
