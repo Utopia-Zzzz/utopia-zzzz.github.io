@@ -194,6 +194,36 @@ boolean、number、string、undefined、null，以及对象变量的指针，这
 <p>标记合并（Mark Compact）：将存活的对象移动到一边，需要被回收的移动到另一边。然后对需要被回收的区域进行整体垃圾回收。</p>
 <h3 id="typeof"><a class="header" href="#typeof">typeof</a></h3>
 <p><img src="./images/JS%E5%8F%98%E9%87%8F%E5%A4%8D%E4%B9%A0-image-20210718123027904.png" alt="image-20210718123027904" /></p>
+<h3 id="封装一个自己的类型检测方法"><a class="header" href="#封装一个自己的类型检测方法">封装一个自己的类型检测方法</a></h3>
+<pre><code class="language-js">let class2Type = {};
+let toString = class2Type.toString;
+
+[
+  &quot;Boolean&quot;,
+  &quot;Number&quot;,
+  &quot;String&quot;,
+  &quot;Function&quot;,
+  &quot;Array&quot;,
+  &quot;Date&quot;,
+  &quot;RegExp&quot;,
+  &quot;0bject&quot;,
+  &quot;Error&quot;,
+  &quot;Symbol&quot;,
+].forEach((name) =&gt; {
+  class2type[&quot;[object ${name}]&quot;] = name.toLowerCase();
+});
+
+function toType(obj) {
+  // 处理null和undefined
+  if (obj == null) {
+    return obj + &quot;&quot;;
+  }
+
+  return typeof obj === &quot;object&quot; || typeof obj === &quot;function&quot;
+    ? class2Type[toString.call(obj)] || &quot;object&quot;
+    : typeof obj;
+}
+</code></pre>
 <h2 id="变量计算"><a class="header" href="#变量计算">变量计算</a></h2>
 <h3 id="强制类型转换的场景"><a class="header" href="#强制类型转换的场景">强制类型转换的场景</a></h3>
 <ul>
