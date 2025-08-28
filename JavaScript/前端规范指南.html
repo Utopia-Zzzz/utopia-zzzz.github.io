@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>代码规范指南 - Rainning in the utopia</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">概述</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">JavaScript</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/作用域和闭包.html"><strong aria-hidden="true">1.1.</strong> 作用域和闭包</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS变量.html"><strong aria-hidden="true">1.2.</strong> JS 变量</a></li><li class="chapter-item expanded "><a href="../JavaScript/防抖和节流.html"><strong aria-hidden="true">1.3.</strong> 防抖和节流</a></li><li class="chapter-item expanded "><a href="../JavaScript/异步.html"><strong aria-hidden="true">1.4.</strong> 异步</a></li><li class="chapter-item expanded "><a href="../JavaScript/手动实现一个new,call,apply,bind.html"><strong aria-hidden="true">1.5.</strong> 手动实现 new，call，apply，bind</a></li><li class="chapter-item expanded "><a href="../JavaScript/浅拷贝、深拷贝.html"><strong aria-hidden="true">1.6.</strong> 浅拷贝、深拷贝</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 进阶</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/函数相关（compose，pip，memoize，curry，偏函数）.html"><strong aria-hidden="true">2.1.</strong> 函数相关（compose，pip，memoize，curry，偏函数）</a></li><li class="chapter-item expanded "><a href="../JavaScript/过滤重复请求-时间窗口.html"><strong aria-hidden="true">2.2.</strong> 过滤重复请求 - 时间窗口</a></li><li class="chapter-item expanded "><a href="../JavaScript/不稳定网络环境下的指数补偿.html"><strong aria-hidden="true">2.3.</strong> 不稳定网络环境下的指数补偿</a></li><li class="chapter-item expanded "><a href="../JavaScript/Promise并发控制.html"><strong aria-hidden="true">2.4.</strong> Promise 并发控制</a></li><li class="chapter-item expanded "><a href="../JavaScript/手撕Promise.html"><strong aria-hidden="true">2.5.</strong> 手撕 Promise</a></li><li class="chapter-item expanded "><a href="../JavaScript/组件懒加载.html"><strong aria-hidden="true">2.6.</strong> 组件懒加载</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> ES6</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/ES6中继承对static函数，箭头函数，普通函数的处理.html"><strong aria-hidden="true">3.1.</strong> ES6 中的继承各种形式的函数处理</a></li><li class="chapter-item expanded "><a href="../JavaScript/各种各样的模块化.html"><strong aria-hidden="true">3.2.</strong> 各种各样的模块化</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 工程化</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/前端规范指南.html" class="active"><strong aria-hidden="true">4.1.</strong> 代码规范指南</a></li><li class="chapter-item expanded "><a href="../JavaScript/Webpack.html"><strong aria-hidden="true">4.2.</strong> Webpack</a></li><li class="chapter-item expanded "><a href="../JavaScript/webpack-dev-server.html"><strong aria-hidden="true">4.3.</strong> webpack-dev-server</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">CSS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS/居中布局.html"><strong aria-hidden="true">5.1.</strong> 居中布局的几种方式</a></li><li class="chapter-item expanded "><a href="../CSS/高度塌陷和垂直外边距重叠.html"><strong aria-hidden="true">5.2.</strong> 高度塌陷和垂直外边距重叠</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">React</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 虚拟 DOM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/虚拟DOM.html"><strong aria-hidden="true">6.1.</strong> 虚拟 DOM</a></li><li class="chapter-item expanded "><a href="../React/手动实现一个虚拟DOM.html"><strong aria-hidden="true">6.2.</strong> 手动实现一个虚拟 DOM</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> React 事件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/React事件简单记录.html"><strong aria-hidden="true">7.1.</strong> 简单记录</a></li><li class="chapter-item expanded "><a href="../React/React事件机制.html"><strong aria-hidden="true">7.2.</strong> React 事件机制源码简单分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Hooks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../React/ReactHooks详解.html"><strong aria-hidden="true">8.1.</strong> React Hooks 详解</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Vue</li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Vue</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vue2.x响应式原理简单解析.html"><strong aria-hidden="true">9.1.</strong> Vue2.x 响应式原理简单解析</a></li><li class="chapter-item expanded "><a href="../Vue/异步更新队列.html"><strong aria-hidden="true">9.2.</strong> 异步更新队列</a></li><li class="chapter-item expanded "><a href="../Vue/computed,watch,watchEffect.html"><strong aria-hidden="true">9.3.</strong> computed,watch,watchEffect</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> Vuex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Vue/Vuex简单源码.html"><strong aria-hidden="true">10.1.</strong> Vuex 简单源码</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">网络</li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 网络基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/加密和HTTPS.html"><strong aria-hidden="true">11.1.</strong> 加密和 HTTPS</a></li><li class="chapter-item expanded "><a href="../Network/TCP_IP三次握手和四次挥手.html"><strong aria-hidden="true">11.2.</strong> TCP/IP 三次握手和四次挥手</a></li><li class="chapter-item expanded "><a href="../Network/HTTP缓存.html"><strong aria-hidden="true">11.3.</strong> HTTP 缓存</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> 扩展阅读</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Network/HTTP2.0_&_HTTP3.0.html"><strong aria-hidden="true">12.1.</strong> HTTP2.0 &amp; HTTP3.0</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/vim编辑器.html"><strong aria-hidden="true">13.1.</strong> vim 编辑器</a></li><li class="chapter-item expanded "><a href="../Linux/初始命令.html"><strong aria-hidden="true">13.2.</strong> 初始命令</a></li><li class="chapter-item expanded "><a href="../Linux/文件内容操作命令.html"><strong aria-hidden="true">13.3.</strong> 文件内容操作命令</a></li><li class="chapter-item expanded "><a href="../Linux/网络命令等.html"><strong aria-hidden="true">13.4.</strong> 网络命令等</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> 安装</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/centos7升级python.html"><strong aria-hidden="true">14.1.</strong> centos7 升级 python</a></li><li class="chapter-item expanded "><a href="../Linux/VMWare15.html"><strong aria-hidden="true">14.2.</strong> VMWare15</a></li><li class="chapter-item expanded "><a href="../Linux/Centos7安装docker（华为源）.html"><strong aria-hidden="true">14.3.</strong> Centos7 安装 docker（华为源）</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Git</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> 个人记录</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Git/git代理.html"><strong aria-hidden="true">15.1.</strong> Git 代理</a></li><li class="chapter-item expanded "><a href="../Git/Gitlab-ce备份和恢复.html"><strong aria-hidden="true">15.2.</strong> Gitlab-ce 备份和恢复</a></li><li class="chapter-item expanded "><a href="../Git/保存本地commit记录的同时合并提交到origin.html"><strong aria-hidden="true">15.3.</strong> 保存本地 commit 记录的同时合并提交到 origin</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">JAVA</li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> 基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/01-Java实现多线程的三种方式.html"><strong aria-hidden="true">16.1.</strong> Java 实现多线程的三种方式</a></li><li class="chapter-item expanded "><a href="../Java/02-多线程的常用操作方法.html"><strong aria-hidden="true">16.2.</strong> 多线程的常用操作方法</a></li><li class="chapter-item expanded "><a href="../Java/03-生产者消费者实战.html"><strong aria-hidden="true">16.3.</strong> 生产者消费者实战</a></li><li class="chapter-item expanded "><a href="../Java/04-StringBuffer类.html"><strong aria-hidden="true">16.4.</strong> StringBuffer 类</a></li><li class="chapter-item expanded "><a href="../Java/05-RunTime类.html"><strong aria-hidden="true">16.5.</strong> RunTime 类</a></li><li class="chapter-item expanded "><a href="../Java/06-System类.html"><strong aria-hidden="true">16.6.</strong> System 类</a></li><li class="chapter-item expanded "><a href="../Java/07-对象克隆.html"><strong aria-hidden="true">16.7.</strong> 对象克隆</a></li><li class="chapter-item expanded "><a href="../Java/08-Math类.html"><strong aria-hidden="true">16.8.</strong> Math 类</a></li><li class="chapter-item expanded "><a href="../Java/09-日期处理.html"><strong aria-hidden="true">16.9.</strong> 日期处理</a></li><li class="chapter-item expanded "><a href="../Java/10-比较器.html"><strong aria-hidden="true">16.10.</strong> 比较器</a></li><li class="chapter-item expanded "><a href="../Java/11-正则表达式.html"><strong aria-hidden="true">16.11.</strong> 正则表达式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> 其他</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/单点登录.html"><strong aria-hidden="true">17.1.</strong> 单点登录</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Python</li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> 乱七八糟</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Flask入门.html"><strong aria-hidden="true">18.1.</strong> Flask 入门</a></li><li class="chapter-item expanded "><a href="../Python/HTTPserver.html"><strong aria-hidden="true">18.2.</strong> HTTPserver</a></li><li class="chapter-item expanded "><a href="../Python/Python数据结构.html"><strong aria-hidden="true">18.3.</strong> Python 数据结构</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-1.html"><strong aria-hidden="true">18.4.</strong> Python 高阶-1</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-2.html"><strong aria-hidden="true">18.5.</strong> Python 高阶-2</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-3.html"><strong aria-hidden="true">18.6.</strong> Python 高阶-3</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-4.html"><strong aria-hidden="true">18.7.</strong> Python 高阶-4</a></li><li class="chapter-item expanded "><a href="../Python/Python高阶-5.html"><strong aria-hidden="true">18.8.</strong> Python 高阶-5</a></li><li class="chapter-item expanded "><a href="../Python/爬坑1-10.html"><strong aria-hidden="true">18.9.</strong> 爬坑 1-10</a></li><li class="chapter-item expanded "><a href="../Python/爬坑11-20.html"><strong aria-hidden="true">18.10.</strong> 爬坑 11-20</a></li><li class="chapter-item expanded "><a href="../Python/爬坑21-30.html"><strong aria-hidden="true">18.11.</strong> 爬坑 21-30</a></li><li class="chapter-item expanded "><a href="../Python/爬坑31-40.html"><strong aria-hidden="true">18.12.</strong> 爬坑 31-40</a></li><li class="chapter-item expanded "><a href="../Python/爬坑41-50.html"><strong aria-hidden="true">18.13.</strong> 爬坑 41-50</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">算法</li><li class="chapter-item expanded "><div><strong aria-hidden="true">19.</strong> LeetCode</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Algorithm/各种排序算法的比较.html"><strong aria-hidden="true">19.1.</strong> 各种排序算法的比较</a></li><li class="chapter-item expanded "><a href="../Algorithm/斐波那契进阶.html"><strong aria-hidden="true">19.2.</strong> 斐波那契进阶</a></li><li class="chapter-item expanded "><a href="../Algorithm/1-两数之和.html"><strong aria-hidden="true">19.3.</strong> 1-两数之和</a></li><li class="chapter-item expanded "><a href="../Algorithm/2-两数相加.html"><strong aria-hidden="true">19.4.</strong> 2-两数相加</a></li><li class="chapter-item expanded "><a href="../Algorithm/3-无重复字符的最长子串.html"><strong aria-hidden="true">19.5.</strong> 3-无重复字符的最长子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/4-寻找两个有序数组的中位数.html"><strong aria-hidden="true">19.6.</strong> 4-寻找两个有序数组的中位数</a></li><li class="chapter-item expanded "><a href="../Algorithm/5-最长回文子串.html"><strong aria-hidden="true">19.7.</strong> 5-最长回文子串</a></li><li class="chapter-item expanded "><a href="../Algorithm/6-Z字形变换.html"><strong aria-hidden="true">19.8.</strong> 6-Z 字形变换</a></li><li class="chapter-item expanded "><a href="../Algorithm/7-整数翻转.html"><strong aria-hidden="true">19.9.</strong> 7-整数翻转</a></li><li class="chapter-item expanded "><a href="../Algorithm/92-反转链表②.html"><strong aria-hidden="true">19.10.</strong> 92-反转链表 ②</a></li><li class="chapter-item expanded "><a href="../Algorithm/206-反转链表.html"><strong aria-hidden="true">19.11.</strong> 206-反转链表</a></li><li class="spacer"></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Rainning in the utopia</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="代码不规范同事两行泪"><a class="header" href="#代码不规范同事两行泪">代码不规范，同事两行泪</a></h1>
+<ol>
+<li>可读性差</li>
+<li>维护困难</li>
+<li>变更历史不透明</li>
+<li>自动化工具的不兼容</li>
+</ol>
+<h1 id="如何统一代码风格规范提交呢呢-推荐使用-eslint--prettier--husky--lint-staged"><a class="header" href="#如何统一代码风格规范提交呢呢-推荐使用-eslint--prettier--husky--lint-staged">如何统一代码风格，规范提交呢呢？ 推荐使用 ESLint + Prettier + husky + lint-staged</a></h1>
+<h2 id="大部分是以前写的东西最新的使用方法要参考官方文档使用"><a class="header" href="#大部分是以前写的东西最新的使用方法要参考官方文档使用">大部分是以前写的东西，最新的使用方法要参考官方文档使用！！！</a></h2>
+<p>另外还有一些搭建项目时大概率会用到的一些东西。（未来得及做讲解，详细参考最新的官方文档）</p>
+<ol>
+<li><strong>eslint</strong> (<a href="https://github.com/eslint/eslint">eslint</a>) JavaScript 代码检测工具，检测并提示错误或警告信息</li>
+<li><strong>prettier</strong> (<a href="https://github.com/prettier/prettier">prettier</a>) 代码自动化格式化工具，更好的代码风格效果</li>
+<li><strong>husky</strong> (<a href="https://github.com/typicode/husky">husky</a>) Git hooks 工具, 可以在执行 git 命令时，执行自定义的脚本程序</li>
+<li><strong>lint-staged</strong> (<a href="https://github.com/okonet/lint-staged">lint-staged</a>) 对暂存区 (git add) 文件执行脚本 检测 校验</li>
+<li><strong>Commitizen</strong> (<a href="https://github.com/commitizen-tools/commitizen">commitizen</a>) 检测 git commit 内容是否符合定义的规范</li>
+<li><strong>conventional-changelog</strong> (<a href="https://github.com/conventional-changelog/conventional-changelog">conventional-changelog</a>)</li>
+<li><strong>eslint-config-prettier</strong> (<a href="https://github.com/prettier/eslint-config-prettier/">eslint-config-prettier</a>) 解决 eslint 和 prettier 冲突</li>
+<li>多环境管理(react-native-dotenv，react-native-config 等)<a href="https://github.com/motdotla/dotenv">dotenv</a></li>
+<li>状态管理轻简化<a href="https://redux-toolkit.js.org/introduction/getting-started">redux-toolkit</a></li>
+<li>表单校验<a href="https://www.npmjs.com/package/yup">Yup</a>，表单控件<a href="https://react-hook-form.com/get-started">react-hook-form</a></li>
+<li>自动收集国际化<a href="https://www.npmjs.com/package/@4rthem/i18next-scanner">i18next-scanner</a>, vscode 插件<a href="https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally">i18n Ally</a></li>
+<li>屏幕适配方案<a href="https://github.com/nirsky/react-native-size-matters">size-matters</a></li>
+<li>跨平台协作，环境变量设置<a href="https://www.npmjs.com/package/cross-env">cross-env</a></li>
+</ol>
+<h2 id="eslint"><a class="header" href="#eslint">ESlint</a></h2>
+<p>eslint 是一个代码检测工具，用于检测代码中潜在的问题和错误，作用提高代码质量和规范。</p>
+<h3 id="安装步骤"><a class="header" href="#安装步骤">安装步骤：</a></h3>
+<p>1、安装 eslint</p>
+<pre><code class="language-js">npm install eslint
+</code></pre>
+<p>2、快速构建 eslint 配置文件</p>
+<pre><code class="language-js">npm init @eslint/config
+</code></pre>
+<p>参考如下 gif 操作：</p>
+<p><img src="images/6v2-e66002d89f40b533ef5c9fd769169e4d.jpg" alt="" /></p>
+<p>执行完成后，自动生成 eslint 配置文件<code>.eslintrc.js</code> 可在 <code>.eslintrc.js</code> 中配置 rules 定义校验规则</p>
+<pre><code class="language-js">rules: {
+  indent: ['error', 4], // 用于指定代码缩进的方式，这里配置为使用四个空格进行缩进。
+  'linebreak-style': [0, 'error', 'windows'], // 用于指定换行符的风格，这里配置为使用 Windows 风格的换行符（\r\n）。
+  quotes: ['error', 'single'], // 用于指定字符串的引号风格，这里配置为使用单引号作为字符串的引号。
+  semi: ['error', 'always'], //用于指定是否需要在语句末尾添加分号，这里配置为必须始终添加分号。
+  '@typescript-eslint/no-explicit-any': ['off'] // 用于配置 TypeScript 中的 &quot;any&quot; 类型的使用规则，这里配置为关闭禁止显式使用 &quot;any&quot; 类型的检查。
+}
+</code></pre>
+<h2 id="husky"><a class="header" href="#husky">husky：</a></h2>
+<p>husky 是一个 Git 钩子（Git hooks）工具，它可以让你在 Git 事件发生时执行脚本，进行代码格式化、测试等操作。</p>
+<p>常见的钩子</p>
+<ul>
+<li><code>pre-commit</code>：在执行 Git <code>commit</code> 命令之前触发，用于在提交代码前进行代码检查、格式化、测试等操作。</li>
+<li><code>commit-msg</code>：在提交消息（commit message）被创建后，但提交操作尚未完成之前触发，用于校验提交消息的格式和内容。</li>
+<li><code>pre-push</code>：在执行 Git <code>push</code> 命令之前触发，用于在推送代码前进行额外检查、测试等操作。</li>
+</ul>
+<p>具体的使用步骤如下：</p>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<blockquote>
+<p>注意！官方文档更新了使用方式，请参考官方文档！</p>
+</blockquote>
+<ol>
+<li>在项目根目录下运行以下命令安装 husky：</li>
+</ol>
+<pre><code class="language-text">npm install husky --save-dev
+</code></pre>
+<ol>
+<li>启用 git 钩子 输入以下命令</li>
+</ol>
+<pre><code class="language-js">npm pkg set scripts.prepare=&quot;husky install&quot;
+</code></pre>
+<p>安装成功后会在 package.json 文件中 script 中生成命令</p>
+<blockquote>
+<p>注意！如为自动生成需手动添加，将以下内容粘贴到 package.json 文件中</p>
+</blockquote>
+<pre><code class="language-js">// package.json
+{
+  &quot;scripts&quot;: {
+    &quot;prepare&quot;: &quot;husky install&quot;
+  }
+}
+</code></pre>
+<ol>
+<li>创建<code>.husky</code>目录，执行如下代码</li>
+</ol>
+<pre><code class="language-js">npm run prepare
+</code></pre>
+<p>如图，执行成功后，项目中生成一个 .husky 目录</p>
+<p><img src="images/7v2-cb18cac14c80dec1a05911092cb0a84b.jpg" alt="image.png" /></p>
+<blockquote>
+<p>注意！如未生成 .husky 目录，推荐使用命令 <code>npx husky install</code></p>
+</blockquote>
+<h3 id="创建-git-挂钩"><a class="header" href="#创建-git-挂钩">创建 Git 挂钩</a></h3>
+<h3 id="pre-commit"><a class="header" href="#pre-commit">pre-commit</a></h3>
+<p>在 Git 提交之前做<code>eslint</code> 语法校验 。</p>
+<h3 id="1创建钩子脚本文件"><a class="header" href="#1创建钩子脚本文件">1、创建钩子脚本文件</a></h3>
+<pre><code class="language-js">npx husky add .husky/pre-commit &quot;npm test&quot;
+</code></pre>
+<p>执执行成功，.husky 目录多出一个 pre-commit 文件</p>
+<p><img src="images/1G4XQYMS(L9%5BLGM9_NG%7D2)M.png" alt="image.png" /></p>
+<blockquote>
+<p>注意！<code>window</code>电脑输入后，可能会报错如下</p>
+</blockquote>
+<pre><code class="language-js">Usage:
+  husky install [dir] (default: .husky)
+  husky uninstall
+  husky set|add &lt;file&gt; [cmd]
+</code></pre>
+<p>解决方式，删除 &quot;npm test&quot; 重新执行</p>
+<pre><code class="language-js">npx husky add .husky/commit-msg
+</code></pre>
+<h3 id="2配置代码检测"><a class="header" href="#2配置代码检测">2、配置代码检测</a></h3>
+<p>git 提交前，执行 pre-commit 钩子脚本，进行校验代码语法、格式修复等操作。</p>
+<p>1、打开 pre-commit 文件，内容如下：</p>
+<pre><code class="language-js">#!/usr/bin/env sh
+. &quot;$(dirname -- &quot;$0&quot;)/_/husky.sh&quot;
+</code></pre>
+<p>2、下方代码添加到 pre-commit 文件中。<code>lint-staged</code>模块， 用于对 git 暂存区检测</p>
+<pre><code class="language-js">npx --no-install lint-staged
+</code></pre>
+<blockquote>
+<p><code>npx --no-install lint-staged</code> 是一个命令，用于在不安装 lint-staged 的情况下运行该工具。<code>npx --no-install</code> 命令用于从远程下载并执行指定的命令。</p>
+</blockquote>
+<h2 id="lint-staged"><a class="header" href="#lint-staged">lint-staged</a></h2>
+<ul>
+<li>作用：lint-staged 可以让你在 Git 暂存（staged）区域中的文件上运行脚本，通常用于在提交前对代码进行格式化、静态检查等操作。</li>
+<li>使用方式：你可以在项目中使用 lint-staged 配合 husky 钩子来执行针对暂存文件的脚本。具体的使用步骤如下：</li>
+</ul>
+<p>在项目根目录下运行以下命令安装 lint-staged：</p>
+<pre><code class="language-text">npm install lint-staged --save-dev
+</code></pre>
+<p>在 <code>package.json</code> 文件中添加以下配置：</p>
+<pre><code class="language-json">{
+  &quot;lint-staged&quot;: {
+    // src/**/*.{js,jsx,ts,tsx} 校验暂存区、指定目录下的文件类型
+    // 校验命令，执行 eslint 、prettier
+    &quot;src/**/*.{js,jsx,ts,tsx}&quot;: [&quot;prettier --write&quot;, &quot;eslint --fix&quot;]
+  }
+}
+</code></pre>
+<ul>
+<li><code>&quot;src/**/*.{js,jsx,ts,tsx}&quot;</code> 是指定要针对的暂存文件模式，你可以根据自己的项目需求来配置。</li>
+<li><code>[&quot;prettier --write&quot;,&quot;eslint --fix&quot;]</code>为校验命令，可执行 eslint 、prettier 等规则</li>
+</ul>
+<h2 id="prettier"><a class="header" href="#prettier">prettier</a></h2>
+<p>prettier 是一个代码格式化工具。prettier 与上述 husky 和 lint-staged 搭配使用，可以在提交代码之前自动格式化代码。具体的使用步骤如下：</p>
+<p>在项目根目录下运行以下命令安装 prettier：</p>
+<pre><code class="language-text">npm install prettier --save-dev
+</code></pre>
+<p>建 <code>.prettierrc.js</code> 文件，并定义你想要的代码样式，例如：</p>
+<pre><code class="language-js">module.exports = {
+  semi: true, //强制在语句末尾使用分号。
+  trailingComma: &quot;none&quot;, //不允许在多行结构的最后一个元素或属性后添加逗号。
+  singleQuote: true, //使用单引号而不是双引号来定义字符串。
+  printWidth: 120, //指定每行代码的最大字符宽度，超过这个宽度的代码将被换行
+  tabWidth: 4, //指定一个制表符（Tab）等于多少个空格。
+};
+</code></pre>
+<p>这里的配置选项根据你的需求定义，具体选项可以参考 <a href="https://prettier.io/docs/en/options.html">prettier 文档</a>。 在 lint-staged 的配置中添加 <code>&quot;prettier --write&quot;</code>，例如：</p>
+<pre><code class="language-json">{
+  &quot;lint-staged&quot;: {
+    // src/**/*.{js,jsx,ts,tsx} 校验暂存区、指定目录下的文件类型
+    // 校验命令，执行 eslint 、prettier
+    &quot;src/**/*.{js,jsx,ts,tsx}&quot;: [&quot;prettier --write&quot;, &quot;eslint --fix&quot;]
+  }
+}
+</code></pre>
+<p>这样当你进行 GIT 提交操作时，lint-staged 将自动运行 prettier 来格式化符合规则的文件。</p>
+<h3 id="配置-ctrl--s-自动保存功能"><a class="header" href="#配置-ctrl--s-自动保存功能">配置 ctrl + s ，自动保存功能</a></h3>
+<p>第一种，在 vscode 设置里面配置 点击 Vscode 的设置=&gt;工作区=&gt;文本编辑器</p>
+<p><img src="images/8v2-384ad941705d66a5de5aaddffd90894c.jpg" alt="image.png" /></p>
+<p>安装步骤</p>
+<h2 id="commitizen"><a class="header" href="#commitizen">Commitizen</a></h2>
+<p>是一个命令行工具，用于以一致的方式编写规范的提交消息。在使用 Commitizen 之前，你需要安装 Commitizen 及其适配器。</p>
+<h3 id="cz-conventional-changelog"><a class="header" href="#cz-conventional-changelog">cz-conventional-changelog</a></h3>
+<p>是 Commitizen 的一个适配器，它实现了符合约定式提交（Conventional Commits）规范的提交消息。该规范定义了提交消息的格式和结构，并推荐了一些常用的提交类型和范围。</p>
+<h3 id="安装和使用步骤"><a class="header" href="#安装和使用步骤">安装和使用步骤：</a></h3>
+<p>1、确保你的项目已经初始化并安装了 npm 或 yarn。 2、打开命令行终端，并在项目根目录下运行以下命令来安装 <code>commitizen</code> 和 <code>cz-conventional-changelog</code>：</p>
+<p>使用 npm：</p>
+<pre><code class="language-text">npm install --save-dev commitizen cz-conventional-changelog
+</code></pre>
+<p>使用 yarn：</p>
+<pre><code class="language-js">yarn add --dev commitizen cz-conventional-changelog
+</code></pre>
+<p>3、安装完成后，在 <code>package.json</code> 中添加一个 <code>config.commitizen</code> 的字段，并设置它的值为 <code>cz-conventional-changelog</code>。 示例如下：</p>
+<pre><code class="language-json">&quot;config&quot;: {
+  &quot;commitizen&quot;: {
+    &quot;path&quot;: &quot;cz-conventional-changelog&quot;
+  }
+}
+</code></pre>
+<p>在 <code>package.json</code> 中的 <code>scripts</code> 字段中添加一个 <code>commit</code> 的命令。 示例如下：</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;commit&quot;: &quot;git-cz&quot;
+}
+</code></pre>
+<p>4、这将允许你使用 <code>npm run commit</code> 或 <code>yarn commit</code> 命令来进行交互式的提交。</p>
+<p>现在，你可以使用 <code>npm run commit</code> 或 <code>yarn commit</code> 命令来进行提交。这将打开一个交互式的界面，引导你填写提交消息。</p>
+<p><strong>案例如下：</strong> 1、提交修改文件</p>
+<pre><code class="language-js">git add .
+</code></pre>
+<p>2、开始交互式提交，填写规范信息</p>
+<pre><code class="language-js">npm run commit
+</code></pre>
+<p>3、选择提交类型</p>
+<pre><code class="language-js">? Select the type of change that you're committing: (Use arrow keys)
+&gt; feat:     A new feature //新功能
+  fix:      A bug fix //错误修复
+  docs:     Documentation only changes //仅文档更改
+  style:    [样式]Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+  refactor: [重构] A code change that neither fixes a bug nor adds a feature
+  perf:     A code change that improves performance
+  test:     Adding missing tests or correcting existing tests
+</code></pre>
+<p>4、根据提示填写内容，可选择空格跳过</p>
+<pre><code class="language-js">? What is the scope of this change // 此更改的范围是什么
+? Write a short, imperative tense description of the change//【必填】 简短的描述这个变化
+? Provide a longer description of the change//提供变更的详细说明：
+? Are there any breaking changes? //有什么突破性的变化吗？【y/n】
+? Does this change affect any open issues? (y/N) //此更改是否会影响任何悬而未决的问题（是/否）
+
+// 完成提交，输出打印日志：
+[master 2cf55e0] docs: 修改commitzen文档
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+</code></pre>
+<p>当你完成提交消息后，Commitizen 会自动生成符合规范的提交消息，并将其添加到 Git commit 中。 根据 <code>cz-conventional-changelog</code> 的规范，提交消息需要包括类型（type）、范围（scope）、简短的描述（subject）和可选的详细描述（body）。</p>
+<p>参考 <a href="https://blog.csdn.net/fightingLKP/article/details/126695679">https://blog.csdn.net/fightingLKP/article/details/126695679</a></p>
+<h2 id="commitlint"><a class="header" href="#commitlint">commitlint</a></h2>
+<p>参考<a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">公认规范</a></p>
+<ul>
+<li>作用：commitlint 用于校验 Git 提交信息的格式是否符合预定义的规范。</li>
+<li>使用方式：你可以在项目中使用 commitlint 来规范提交信息的格式，例如使用约定式提交（Conventional Commits）的格式。具体的使用步骤如下：</li>
+</ul>
+<p>在项目根目录下运行以下命令安装 commitlint：</p>
+<pre><code class="language-text">npm install @commitlint/cli --save-dev
+</code></pre>
+<p>在项目根目录下创建 <code>commitlint.config.js</code> 文件，并添加以下配置：</p>
+<pre><code class="language-js">module.exports = {
+  extends: [&quot;@commitlint/config-conventional&quot;],
+};
+</code></pre>
+<p>这里使用了 <code>@commitlint/config-conventional</code> 包提供的预定义配置，可根据需要自定义配置。你还可以在配置文件中定义自己的规则。</p>
+<p>在 <code>package.json</code> 文件中添加以下配置：</p>
+<pre><code class="language-json">{
+  &quot;scripts&quot;: {
+    &quot;commitmsg&quot;: &quot;commitlint -E HUSKY_GIT_PARAMS&quot;
+  }
+}
+</code></pre>
+<p>修改 husky 的配置，添加 <code>&quot;commit-msg&quot;</code> 钩子事件如下：</p>
+<pre><code class="language-json">{
+  &quot;husky&quot;: {
+    &quot;hooks&quot;: {
+      &quot;commit-msg&quot;: &quot;npm run commitmsg&quot;,
+      &quot;...&quot;: &quot;...&quot;
+    }
+  }
+}
+</code></pre>
+<p>或者在.husky 文件夹下新建 commit-msg 文件写入<code>npm run commitmsg</code>（推荐）</p>
+<p>这样当你进行提交信息时，commitlint 将自动校验提交信息的格式是否符合预定义规范，并给出相应的提示和错误。</p>
+<h2 id="根据-commit-内容自动生成-changelog更新发版内容"><a class="header" href="#根据-commit-内容自动生成-changelog更新发版内容">根据 commit 内容自动生成 CHANGELOG，更新发版内容</a></h2>
+<p><img src="images/install_change_log.png" alt="install" /></p>
+<p><img src="images/changeLog.png" alt="changeLog" /></p>
+<h2 id="解决-eslint-和-prettier-冲突"><a class="header" href="#解决-eslint-和-prettier-冲突">解决 eslint 和 prettier 冲突</a></h2>
+<p>可以参考<a href="https://www.npmjs.com/package/eslint-plugin-prettier?activeTab=readme">eslint-plugin-prettier</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../JavaScript/各种各样的模块化.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../JavaScript/Webpack.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../JavaScript/各种各样的模块化.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../JavaScript/Webpack.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
