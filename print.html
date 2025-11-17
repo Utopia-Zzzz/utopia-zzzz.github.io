@@ -2622,7 +2622,7 @@ paths:
   );
 }
 </code></pre>
-<p>以下的书写方法是不是不会散落？易于阅读？</p>
+<p>易于阅读、关联性强的写法：</p>
 <pre><code class="language-jsx">const [listData, setListData] = useState({
   users: [],
   totalCount: 0,
@@ -2655,7 +2655,24 @@ function fetchUsers() {
 }
 </code></pre>
 <p>是否所有的数据都需要用 <code>useState</code> 包裹？</p>
-<p><code>totalCount</code> 这个东西真的是要放在 <code>state</code> 中吗？</p>
+<p><code>totalCount</code> 作为衍生属性，可以直接书写计算，不需要用 state 包裹或使用副作用更新。</p>
+<p>借助 <code>useEffect</code> 的写法，此处只是拿 <code>totalCount</code> 来类比，实际可能是其他衍生属性：</p>
+<pre><code class="language-jsx">const [listData, setListData] = useState([]);
+const [totalCount, setTotalCount] = useState(0);
+
+function addItem(item) {
+  setListData([...listData, item]);
+}
+
+function removeItem(itemId) {
+  setItems(listData.filter((i) =&gt; i.id !== itemId));
+}
+
+useEffect(() =&gt; {
+  setTotalCount(listData.length);
+}, [listData]);
+</code></pre>
+<p>直接计算出来，无需 state、useEffect</p>
 <pre><code class="language-jsx">const [listData, setListData] = useState([]);
 
 function addItem(item) {
@@ -2671,9 +2688,23 @@ const totalCount = listData.length;
 // 如果是购物车价格的话
 const totalPrice = listData.reduce((sum, item) =&gt; sum + item.price, 0);
 </code></pre>
-<p><code>vue</code> 中的 <code>compute</code> 是一个带缓存的好东西。</p>
-<p><code>react</code> 中，可以考虑使用 <code>useMemo</code>, <code>useCallback</code>之类的来实现相同的功能。</p>
-<p>优雅的设计 <code>store</code>，使用 <code>getter</code> 等方法</p>
+<p>对于不需要频繁更新的数据，可以使用 <code>useMemo</code> 来包裹：</p>
+<pre><code class="language-jsx">const memoizedValue = useMemo(() =&gt; computeExpensiveValue(a, b), [a, b]);
+</code></pre>
+<ul>
+<li>
+<p><code>react</code> 中，可以考虑使用 <code>useMemo</code> 来实现带缓存的计算属性。</p>
+</li>
+<li>
+<p><code>vue</code> 中的 <code>compute</code> 是一个自带缓存的方法，可以用来做一些性能优化，不必要将所有属性都挂载在 <code>data</code> 上（会被转换为响应式从而增加性能损失）。</p>
+</li>
+<li>
+<p><code>vue</code> 中，对于一些外部引入的属性，可以在 <code>created</code> 阶段直接挂载在 <code>this </code>上，避免性能损失（比如外部引入的字典类型）。</p>
+</li>
+<li>
+<p>优雅的设计 <code>store</code>，对于衍生属性，使用 <code>getter</code> 方法来获取。</p>
+</li>
+</ul>
 <h3 id="3-如何封装成组件"><a class="header" href="#3-如何封装成组件">3、 如何封装成组件？</a></h3>
 <p>组件应该完成的本职工作：</p>
 <ul>
@@ -2746,6 +2777,9 @@ function List({ data, loading, error, run, pageSize, pageNum }) {
 <p><a href="https://ahooks.js.org/zh-CN/hooks/use-pagination">usePagination</a></p>
 <p>感兴趣的可以自行封装一下，或者参考 <code>ahook</code> 源码。</p>
 <h1 id="3-abortcontroller优雅的取消一次请求并且方式内存泄漏"><a class="header" href="#3-abortcontroller优雅的取消一次请求并且方式内存泄漏">3、 AbortController，优雅的取消一次请求并且方式内存泄漏</a></h1>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">MDN</a></p>
+<p><code>AbortController</code> 接口表示一个控制器对象，允许你根据需要中止一个或多个 <code>Web</code> 请求。</p>
+<p>只有一个只读实例属性 <code>signal</code> 和一个实例方法 <code>abort()</code>。</p>
 <p>如果页面组件已经卸载，而网络请求此时才完成，那么尝试 <code>setState</code> 的时候，有可能会导致内存泄漏。</p>
 <pre><code class="language-js">// 创建控制器
 const controller = new AbortController();
@@ -2764,6 +2798,7 @@ fetch(&quot;https://api.example.com/data&quot;, { signal })
 // 需要取消时调用
 controller.abort();
 </code></pre>
+<p>当 <code>abort()</code> 被调用时，这个 <code>fetch()</code> <code>promise</code> 将 <code>reject</code> 一个名为 <code>AbortError</code> 的 <code>DOMException</code>。</p>
 <pre><code class="language-jsx">import { useState, useEffect } from &quot;react&quot;;
 import { Card, CardBody, CardTitle } from &quot;reactstrap&quot;;
 
@@ -2806,6 +2841,93 @@ const SafeDataFetcher = () =&gt; {
   );
 };
 </code></pre>
+<p>另外的思考，也可以实现一个可以中断的 Promise。</p>
+<p><img src="JavaScript/./images/%E5%8F%AF%E4%BB%A5%E4%B8%AD%E6%96%AD%E7%9A%84Promise.png" alt="alt text" /></p>
+<h1 id="4-如何在意料之外的-error-中保持页面不崩溃"><a class="header" href="#4-如何在意料之外的-error-中保持页面不崩溃">4、 如何在意料之外的 <code>error</code> 中保持页面不崩溃？</a></h1>
+<p><code>React</code> 中大家都使用过 <code>Suspense</code> + <code>lazy</code> 来实现一个异步加载组件。</p>
+<pre><code class="language-jsx">import React, { Suspense } from &quot;react&quot;;
+
+const LazyAaa = React.lazy(() =&gt; import(&quot;./Aaa&quot;));
+
+export default function App() {
+  return (
+    &lt;div&gt;
+      &lt;Suspense fallback={&quot;loading...&quot;}&gt;
+        &lt;LazyAaa&gt;&lt;/LazyAaa&gt;
+      &lt;/Suspense&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>这样在组件加载完成之前，就会显示 <code>loading...</code>。</p>
+<p><code>ErrorBoundary</code> 的特性：</p>
+<p>当子组件报错的时候，会把错误传递给它的 <code>getDerivedStateFromError</code> 和 <code>componentDidCatch</code> 方法。</p>
+<p><code>getDerivedStateFromError</code> 接收 <code>error</code>，返回一个新的 <code>state</code>，会触发重新渲染来显示错误对应的 <code>UI</code>。</p>
+<p><code>componentDidCatch</code> 接收 <code>error</code> 和堆栈 <code>info</code>，可以用来打印错误日志。</p>
+<p>实现一个 <code>ErrorBoundary</code></p>
+<pre><code class="language-jsx">import { Component } from &quot;react&quot;;
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+    };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, message: error.message };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return &lt;div&gt;出错了： {this.state.message}&lt;/div&gt;;
+    }
+    return this.props.children;
+  }
+}
+</code></pre>
+<p>这样如果页面出错，就会使得 <code>hasError</code> 为 <code>true</code>，组件有了兜底渲染内容，不至于使得页面崩溃。</p>
+<p>上述是一个 <code>class</code> 组件，因为几个特性都是 <code>class</code> 组件中的内容，函数式组件没办法实现。</p>
+<p>因此，在函数式编程中，可以使用 <code>react-error-boundary</code> 包来使用 <code>ErrorBoundary</code></p>
+<pre><code class="language-jsx">import { ErrorBoundary } from &quot;react-error-boundary&quot;;
+
+function Bbb() {
+  const b = window.a.b;
+
+  return &lt;div&gt;{b}&lt;/div&gt;;
+}
+
+function fallbackRender({ error }) {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;出错了：&lt;/p&gt;
+      &lt;div&gt;{error.message}&lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default function App() {
+  return (
+    &lt;ErrorBoundary fallback={fallbackRender}&gt;
+      &lt;Bbb&gt;&lt;/Bbb&gt;
+    &lt;/ErrorBoundary&gt;
+  );
+}
+</code></pre>
+<p>任意层级的子组件报错都会找到最近的 <code>ErrorBoundary</code></p>
+<p>关于 <code>ErrorBoundary</code> 和 <code>Suspense</code> 的区别：</p>
+<ul>
+<li><code>ErrorBoundary</code> 是捕获组件 <code>throw</code> 的错误</li>
+<li><code>Suspense</code> 是捕获组件 <code>throw</code> 的 promise</li>
+<li><code>ErrorBoundary</code> 仅能捕获渲染过程中的运行时错误，不能捕获 <code>Suspense</code> 的“等待”状态。</li>
+</ul>
+<p>有兴趣的可以深入了解一下， <code>Suspense</code> 可以配合 <code>use</code> hook 来实现自动 <code>loading</code>。</p>
+<p><a href="https://react.dev/reference/react/use#streaming-data-from-server-to-client">use</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="模块支持方案"><a class="header" href="#模块支持方案">模块支持方案</a></h1>
 <p>webpack 支持 CommonJS（配置文件是 Node 环境下运行的），AMD，ES6 Module 规范。</p>
 <h1 id="核心概念"><a class="header" href="#核心概念">核心概念</a></h1>
